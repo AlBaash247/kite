@@ -1,35 +1,41 @@
 import { API_URL_PROJECTS } from "../constants/api-urls.js";
 import { adapter } from "../adapters/tasks-adapter.js";
-import { getUser } from "./auth.js";
+import { getUser, storeUser, fetchLogin } from "./auth.js";
 
-// const myModal = new bootstrap.Modal(document.getElementById('loginModal'));
+// Create a new instance of the modal
+const myModal = new bootstrap.Modal(document.getElementById('loginModal'));
 const tempContainer = document.querySelector('#tempContainer');
 const contentContainer = document.querySelector('#contentContainer');
+
 const btnLogin = document.getElementById('btnLogin');
 const btnRegister = document.querySelector('#btnRegister');
+
+const modalInputEmail = document.querySelector('#modalInputEmail');
+const modalInputPassword = document.querySelector('#modalInputPassword');
+
+
+// Remove current user
+// storeUser(null);
+
 const isAuthOK = getUser() != null;
 
-btnLogin.onclick = function () {
-    alert('Button was clicked!');
-};
 
 init();
 
 function init() {
 
+    modalBtnLogin.onclick = function () { login(); }
 
-    // toggleActiveContent();
+    toggleActiveContent();
 
-    // if (isAuthOK) {
-    //     displayLoginModal();
-    // }
-    // else {
-    //     fetchData();
-    // }
+    if (isAuthOK) {
+        fetchData();
+    }
+    else {
+        btnLogin.onclick = function () { displayLoginModal(); }
+        displayLoginModal();
+    }
 }
-
-
-
 
 
 function toggleActiveContent() {
@@ -58,8 +64,14 @@ async function fetchData() {
 }
 
 function displayLoginModal() {
-    // Create a new instance of the modal
-    // myModal.show();
+    myModal.show();
+}
+
+function login() {
+    const user = {};
+    user.email = modalInputEmail.value;
+    user.password = modalInputPassword.value;
+    fetchLogin(user);
 }
 
 
