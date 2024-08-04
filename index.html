@@ -36,16 +36,17 @@
         </div>
     </nav>
 
+    <div id="tempContainer" class="container">
 
-    <div id="tempContainer" class="container mt-5">
-
-        <h1 class="display-1">
-            Please
-            <button id="btnLogin">Login</button>
-            or
-            <button id="btnRegister" class="btn btn-lg btn-success ">Register</button>
-            to start using Kite!
-        </h1>
+        <div class="d-flex justify-content-center align-items-center vh-100">
+            <h1 class="display-1">
+                Please
+                <button id="btnLogin" class="btn btn-lg btn-primary">Login</button>
+                or
+                <button id="btnRegister" class="btn btn-lg btn-success">Register</button>
+                to start using Kite!
+            </h1>
+        </div>
 
     </div>
 
@@ -88,34 +89,49 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade modal-dialog-centered" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false"
-        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Welcome Back :)</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+
+                    <div class="form-floating mb-3">
+                        <input id="modalInputEmail" type="email" class="form-control" placeholder="name@example.com"
+                            value="tst_user_5@mail.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating">
+                        <input id="modalInputPassword" type="password" class="form-control" placeholder="Password"
+                            value="123123">
+                        <label for="floatingPassword">Password</label>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+
+                <div class="container modal-footer">
+                    <div class="d-flex w-100">
+                        <div class="flex-fill">
+                            No Account:
+                            <button id="modalBtnRegister" type="button" class="btn btn-success"
+                                data-bs-dismiss="modal">Register</button>
+                        </div>
+                        <button type="button" class="btn btn-secondary mx-1" data-bs-dismiss="modal">Close</button>
+                        <button id="modalBtnLogin" type="button" class="btn btn-primary mx-1">Login</button>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
-
-
 
     <script type="module" src="js/handlers/kite-projects.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-
-
 
 </body>
 
