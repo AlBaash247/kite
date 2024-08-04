@@ -8,3 +8,23 @@ export const API_URL_LOGIN = `${selectedEnv}/api/kite/login`;
 export const API_URL_REGISTER = `${selectedEnv}/api/kite/register`;
 export const API_URL_PROJECTS = `${selectedEnv}/api/kite/projects`;
 export const API_URL_TASKS = `${selectedEnv}/api/kite/tasks`;
+
+export const HTTP_METHOD_GET_NO_CACHE = {
+    method: 'GET', headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache'
+    }
+}
+
+export function HTTP_METHOD_POST_NO_CACHE(jsonRequestObj) {
+    const httpObj = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache'
+        },
+        // your expected POST request payload goes here
+        body: JSON.stringify(jsonRequestObj)
+    };
+    return httpObj;
+}
