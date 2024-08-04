@@ -103,12 +103,16 @@
                         <input id="modalInputEmail" type="email" class="form-control" placeholder="name@example.com"
                             value="tst_user_5@mail.com">
                         <label for="floatingInput">Email address</label>
+                        <p id="modalInputError_email" class="text-danger"></p>
                     </div>
                     <div class="form-floating">
                         <input id="modalInputPassword" type="password" class="form-control" placeholder="Password"
                             value="123123">
                         <label for="floatingPassword">Password</label>
+                        <p id="modalInputError_password" class="text-danger"></p>
                     </div>
+
+                    <p id="modalInputError_credentials" class="text-danger fs-5"></p>
                 </div>
 
                 <div class="container modal-footer">
@@ -127,7 +131,7 @@
         </div>
     </div>
 
-    <script type="module" src="js/handlers/kite-projects.js"></script>
+    <script type="module" src="js/scripts/index.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
