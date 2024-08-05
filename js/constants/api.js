@@ -6,7 +6,7 @@ const selectedEnv = localEnv;
 
 export const API_URL_LOGIN = `${selectedEnv}/api/kite/login`;
 export const API_URL_REGISTER = `${selectedEnv}/api/kite/register`;
-export const API_URL_PROJECTS = `${selectedEnv}/api/kite/projects`;
+export const API_URL_PROJECTS = `${selectedEnv}/api/kite/projects/`;
 export const API_URL_TASKS = `${selectedEnv}/api/kite/tasks`;
 
 export const API_ERROR_MSG_ALL_FIELDS_MANDATORY = "All fields are mandatory.";

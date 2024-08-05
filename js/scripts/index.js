@@ -18,7 +18,7 @@ const modalInputError_password = document.querySelector('#modalInputPassword');
 const modalInputError_credentials = document.querySelector('#modalInputError_credentials');
 
 // Remove current user
-storeUser(null);
+// storeUser(null);
 
 let isAuthOK = getUser() != null;
 

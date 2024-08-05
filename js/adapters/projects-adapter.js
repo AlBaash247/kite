@@ -3,7 +3,6 @@ const taskRowTemplate = document.querySelector('#taskRowTemplate');
 const contentContainer = document.querySelector('#contentContainer');
 
 export function adapter(projects) {
-    console.log(projects);
     projects.forEach(project => {
         console.log(project);
         //  createRow(projects);
