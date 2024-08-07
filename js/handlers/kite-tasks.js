@@ -1,7 +1,7 @@
-import { API_URL_TASKS } from "../constants/api-urls.js";
+import { API_URL_TASKS } from "../constants/api.js";
 import { adapter } from "../adapters/tasks-adapter.js";
 
-async function fetchData() {
+async function fetchTasks() {
     try {
         const response = await fetch(API_URL_TASKS);
         if (!response.ok) {
@@ -14,4 +14,4 @@ async function fetchData() {
     }
 }
 
-fetchData();
+fetchTasks();
