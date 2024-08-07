@@ -1,6 +1,7 @@
 import store from 'https://cdn.jsdelivr.net/npm/store@2.0.12/+esm'
 import { STORE_USER } from '../constants/store-keys.js';
-import { API_URL_LOGIN, HTTP_METHOD_POST_NO_CACHE } from '../constants/api.js';
+import { API_URL_LOGIN, API_URL_REGISTER, HTTP_METHOD_POST_NO_CACHE } from '../constants/api.js';
+
 
 export function storeUser(user) {
     store.set(STORE_USER, user)
@@ -32,9 +33,23 @@ export async function fetchLogin(user) {
         return responseObject;
 
     } catch (error) {
-        console.log('Error fetching data:' + error);
         result.is_ok = false;
         result.message = 'Error fetching data: ' + error;
         return result;
     }
 }
+
+
+async function fetchRegister(user) {
+    try {
+        const response = await fetch(API_URL_REGISTER,HTTP_METHOD_POST_NO_CACHE(user));
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
