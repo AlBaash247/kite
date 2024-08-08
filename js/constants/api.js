@@ -9,6 +9,9 @@ export const API_URL_REGISTER = `${selectedEnv}/api/kite/register`;
 export const API_URL_PROJECTS = `${selectedEnv}/api/kite/projects/`;
 export const API_URL_TASKS = `${selectedEnv}/api/kite/tasks`;
 
+export const API_KEY_AUTHOR_ID = "author_id";
+export const API_KEY_PROJECT_ID = "project_id";
+
 export const API_ERROR_MSG_ALL_FIELDS_MANDATORY = "All fields are mandatory.";
 export const API_ERROR_MSG_WRONG_CREDENTIALS = "wrong credentials";
 
