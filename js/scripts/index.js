@@ -5,7 +5,7 @@ import { fetchProjects } from "../handlers/kite-projects.js";
 // Create a new instance of the modal
 const myModal = new bootstrap.Modal(document.getElementById('loginModal'));
 const tempContainer = document.querySelector('#tempContainer');
-const contentContainer = document.querySelector('#contentContainer');
+const mainContainer = document.querySelector('#mainContainer');
 
 const btnLogin = document.querySelector('#btnLogin');
 const btnRegister = document.querySelector('#btnRegister');
@@ -38,11 +38,11 @@ function toggleActiveContent() {
 
     if (isAuthOK) {
         tempContainer.classList.add('d-none');
-        contentContainer.classList.remove('d-none');
+        mainContainer.classList.remove('d-none');
         fetchProjects();
     } else {
         tempContainer.classList.remove('d-none');
-        contentContainer.classList.add('d-none');
+        mainContainer.classList.add('d-none');
         displayLoginModal();
     }
 
