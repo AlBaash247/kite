@@ -4,7 +4,7 @@ const contentContainer = document.querySelector('#contentContainer');
 
 export function adapter(tasks) {
 
-    tasks.data.forEach(task => {
+    tasks.forEach(task => {
         createRow(task);
     });
 
