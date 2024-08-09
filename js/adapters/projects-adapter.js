@@ -22,7 +22,13 @@ function createListItem(project, index) {
     listItem.dataset.project_id = project.id;
     projectTitle.innerText = project.project_name;
 
-    index == 0 ? linkElement.classList.add("active") : null;
+    if (index == 0) {
+        linkElement.classList.add("active");
+        var jsonRequestBody = {};
+        jsonRequestBody[API_KEY_PROJECT_ID] = listItem.dataset.project_id;
+        fetchTasks(jsonRequestBody);
+    }
+
 
     listItem.onclick = function () {
         var jsonRequestBody = {};
