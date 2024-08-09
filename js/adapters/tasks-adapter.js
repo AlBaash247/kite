@@ -18,7 +18,6 @@ function createRow(task) {
     const task_id = clone.querySelector('#task_id');
     const task_title = clone.querySelector('#task_title');
     const task_author_name = clone.querySelector('#task_author_name');
-    const task_project_name = clone.querySelector('#task_project_name');
     const task_status = clone.querySelector('#task_status');
     const task_importance = clone.querySelector('#task_importance');
     const task_due_date = clone.querySelector('#task_due_date');
@@ -27,11 +26,23 @@ function createRow(task) {
     task_id.innerText = task.id;
     task_title.innerText = task.title;
     task_author_name.innerText = task.author_name;
-    task_project_name.innerText = task.project_name;
     task_status.innerText = task.status;
     task_importance.innerText = task.importance;
     task_due_date.innerText = task.due_date;
     task_content.innerText = task.content;
+
+    switch (task.status) {
+        case "todo": task_status.classList.add("text-bg-secondary"); break;
+        case "in_progress": task_status.classList.add("text-bg-warning"); break;
+        case "done": task_status.classList.add("text-bg-success"); break;
+    }
+
+    switch (task.importance) {
+        case "important": task_importance.classList.add("text-bg-primary"); break;
+        case "low_priority": task_importance.classList.add("text-bg-light"); break;
+        case "normal": task_importance.classList.add("text-bg-info"); break;
+        case "urgent": task_importance.classList.add("text-bg-danger"); break;
+    }
 
     contentContainer.appendChild(clone);
 
