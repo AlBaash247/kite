@@ -115,14 +115,14 @@
         </li>
     </template>
 
-    <!-- tasks rows tamplate -->
+    <!-- tasks rows template -->
     <template id="taskRowTemplate">
         <tr>
             <td id="task_id">id </td>
             <td id="task_author_name">Author Name </td>
             <td id="task_title"> title </td>
-            <td> <span id="task_status" class="badge rounded-pill shadow">Status</span> </td>
-            <td><span id="task_importance" class="badge rounded-pill shadow">Importance</span> </td>
+            <td> <span id="task_status" class="card badge rounded-pill shadow">Status</span> </td>
+            <td><span id="task_importance" class="card badge rounded-pill shadow">Importance</span> </td>
             <td id="task_due_date">Due Date </td>
             <td id="task_content">Content </td>
         </tr>
@@ -142,13 +142,13 @@
                     <div class="form-floating mb-3">
                         <input id="modalInputEmail" type="email" class="form-control" placeholder="name@example.com"
                             value="tst_user_5@mail.com">
-                        <label for="floatingInput">Email address</label>
+                        <label for="modalInputEmail">Email address</label>
                         <p id="modalInputError_email" class="text-danger"></p>
                     </div>
                     <div class="form-floating">
                         <input id="modalInputPassword" type="password" class="form-control" placeholder="Password"
                             value="123123">
-                        <label for="floatingPassword">Password</label>
+                        <label for="modalInputPassword">Password</label>
                         <p id="modalInputError_password" class="text-danger"></p>
                     </div>
 
