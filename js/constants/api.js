@@ -12,9 +12,17 @@ export const API_URL_TASKS = `${selectedEnv}/api/kite/tasks`;
 export const API_KEY_AUTHOR_ID = "author_id";
 export const API_KEY_PROJECT_ID = "project_id";
 
+export const API_KEY_STATUS_TODO = "todo";
+export const API_KEY_STATUS_IN_PROGRESS = "in_progress";
+export const API_KEY_STATUS_DONE = "done";
+
+export const API_KEY_IMPORTANCE_IMPORTANT = "important";
+export const API_KEY_IMPORTANCE_LOW_PRIORITY = "low_priority";
+export const API_KEY_IMPORTANCE_NORMAL = "normal";
+export const API_KEY_IMPORTANCE_URGENT = "urgent";
+
 export const API_ERROR_MSG_ALL_FIELDS_MANDATORY = "All fields are mandatory.";
 export const API_ERROR_MSG_WRONG_CREDENTIALS = "wrong credentials";
-
 
 
 export const HTTP_METHOD_GET_NO_CACHE = {
