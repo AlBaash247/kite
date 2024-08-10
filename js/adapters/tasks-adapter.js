@@ -7,10 +7,21 @@ const taskRowTemplate = document.querySelector('#taskRowTemplate');
 const contentContainer = document.querySelector('#contentContainer');
 
 export function adapter(tasks) {
+    contentContainer.innerHTML = "";
 
-    tasks.forEach(task => {
-        createRow(task);
-    });
+    if (tasks.length == 0) {
+        createEmptyRow();
+    } else {
+        tasks.forEach(task => {
+            createRow(task);
+        });
+    }
+
+}
+
+function createEmptyRow() {
+    const emptyRow = `<tr> <td colspan="12"> <h3 class="text-danger"> No TasksFound </h3> </td> </tr>`;
+    contentContainer.innerHTML = emptyRow;
 }
 
 function createRow(task) {
