@@ -5,7 +5,7 @@ const projectListItemTemplate = document.querySelector('#projectListItemTemplate
 const projectsContainer = document.querySelector('#projectsContainer');
 
 export function adapter(projects) {
-
+    projectsContainer.innerHTML = "";
     projects.forEach((project, index) => {
         createListItem(project, index);
     });
