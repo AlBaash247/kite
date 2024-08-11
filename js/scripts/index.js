@@ -1,11 +1,14 @@
 import { API_ERROR_MSG_ALL_FIELDS_MANDATORY, API_ERROR_MSG_WRONG_CREDENTIALS } from "../constants/api.js";
-import { getUser, storeUser, fetchLogin } from "../handlers/auth.js";
+import { getUser, storeUser, fetchLogin, signout } from "../handlers/auth.js";
 import { fetchProjects } from "../handlers/kite-projects.js";
 
 // Create a new instance of the modal
 const myModal = new bootstrap.Modal(document.getElementById('loginModal'));
 const tempContainer = document.querySelector('#tempContainer');
 const mainContainer = document.querySelector('#mainContainer');
+const dropdownSettings = document.querySelector('#dropdownSettings');
+const dropdownSettingsAuth = document.querySelector('#dropdownSettingsAuth');
+
 
 const btnLogin = document.querySelector('#btnLogin');
 const btnRegister = document.querySelector('#btnRegister');
@@ -17,10 +20,14 @@ const modalInputError_email = document.querySelector('#modalInputError_email');
 const modalInputError_password = document.querySelector('#modalInputPassword');
 const modalInputError_credentials = document.querySelector('#modalInputError_credentials');
 
+const settingsBtnLogin = document.querySelector('#settingsBtnLogin');
+const settingsBtnSignout = document.querySelector('#settingsBtnSignout');
+
+
 // Remove current user
 // storeUser(null);
 
-let isAuthOK = getUser() != null;
+let isAuthOK = () => { return getUser() != null; }
 
 init();
 
@@ -28,21 +35,31 @@ function init() {
 
     modalBtnLogin.onclick = function () { login(); }
     btnLogin.onclick = function () { displayLoginModal(); }
+    settingsBtnLogin.onclick = function () { displayLoginModal(); }
+
+    settingsBtnSignout.onclick = function () { logout(); }
 
     toggleActiveContent();
 }
 
 
 function toggleActiveContent() {
-    console.log('isAuthOk ', isAuthOK);
+    console.log('isAuthOk ', isAuthOK());
 
-    if (isAuthOK) {
+    if (isAuthOK()) {
         tempContainer.classList.add('d-none');
         mainContainer.classList.remove('d-none');
+
+        dropdownSettings.classList.add('d-none');
+        dropdownSettingsAuth.classList.remove('d-none');
+
         fetchProjects();
     } else {
         tempContainer.classList.remove('d-none');
         mainContainer.classList.add('d-none');
+
+        dropdownSettings.classList.remove('d-none');
+        dropdownSettingsAuth.classList.add('d-none');
         displayLoginModal();
     }
 
@@ -51,6 +68,8 @@ function toggleActiveContent() {
 function displayLoginModal() {
     myModal.show();
 }
+
+
 
 async function login() {
     modalInputError_email.innerText = "";
@@ -75,7 +94,7 @@ function validateLoginResult(loginResult) {
     }
     else {
         myModal.hide();
-        isAuthOK = true;
+        isAuthOK();
         toggleActiveContent();
         console.log(loginResult);
     }
@@ -94,4 +113,9 @@ function showMissFields(error) {
         errorElement.classList.remove('d-none');
         errorElement.innerText = error[key][0];
     });
+}
+
+function logout() {
+    signout();
+    toggleActiveContent();
 }

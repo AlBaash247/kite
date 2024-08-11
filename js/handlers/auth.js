@@ -39,7 +39,6 @@ export async function fetchLogin(user) {
     }
 }
 
-
 async function fetchRegister(user) {
     try {
         const response = await fetch(API_URL_REGISTER,HTTP_METHOD_POST_NO_CACHE(user));
@@ -51,5 +50,9 @@ async function fetchRegister(user) {
     } catch (error) {
         console.error('Error fetching data:', error);
     }
+}
+
+export function signout(){
+    storeUser(null);
 }
 
