@@ -1,6 +1,6 @@
 import { API_ERROR_MSG_ALL_FIELDS_MANDATORY, API_ERROR_MSG_WRONG_CREDENTIALS } from "../constants/api.js";
 import { getUser, fetchLogin } from "../handlers/auth.js";
-import { loginModal, displayLoginModal } from "./index.js";
+import { loginModal, displayLoginModal, toggleActiveContent } from "./index.js";
 
 const btnLogin = document.querySelector('#btnLogin');
 

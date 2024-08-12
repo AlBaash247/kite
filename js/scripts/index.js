@@ -24,7 +24,7 @@ function init() {
     toggleActiveContent();
 }
 
-function toggleActiveContent() {
+export function toggleActiveContent() {
     console.log('isAuthOk ', isAuthOK());
 
     if (isAuthOK()) {
