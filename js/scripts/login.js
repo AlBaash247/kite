@@ -1,4 +1,4 @@
-import { getUser, fetchLogin } from "../handlers/auth.js";
+import { isAuthOK, fetchLogin } from "../handlers/auth.js";
 import { API_ERROR_MSG_VALIDATION_FAILED, API_ERROR_MSG_WRONG_CREDENTIALS } from "../constants/api.js";
 import { loginModal, displayLoginModal, displayRegisterModal, toggleActiveContent } from "./index.js";
 
@@ -20,8 +20,6 @@ export function initLoginScript() {
 
     modalLoginBtnRegister.onclick = function () { displayRegisterModal(); }
 }
-
-export function isAuthOK() { return getUser() != null; }
 
 async function loginScript() {
     modalLoginInputError_email.innerText = "";

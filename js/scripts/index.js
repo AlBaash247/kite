@@ -1,6 +1,6 @@
-import { signOut } from "../handlers/auth.js";
+import { isAuthOK, signOut } from "../handlers/auth.js";
 import { fetchProjects } from "../handlers/kite-projects.js";
-import { initLoginScript, isAuthOK, } from './login.js';
+import { initLoginScript } from './login.js';
 import { initRegisterScript } from './register.js';
 
 

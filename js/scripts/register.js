@@ -1,4 +1,4 @@
-import { fetchRegister } from "../handlers/auth.js";
+import { isAuthOK, fetchRegister } from "../handlers/auth.js";
 import { API_ERROR_MSG_VALIDATION_FAILED, API_ERROR_MSG_WRONG_CREDENTIALS } from "../constants/api.js";
 import { registerModal, displayLoginModal, displayRegisterModal, toggleActiveContent } from "./index.js";
 

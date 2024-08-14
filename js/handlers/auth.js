@@ -2,6 +2,8 @@ import store from 'https://cdn.jsdelivr.net/npm/store@2.0.12/+esm'
 import { STORE_USER } from '../constants/store-keys.js';
 import { API_URL_LOGIN, API_URL_REGISTER, HTTP_METHOD_POST_NO_CACHE } from '../constants/api.js';
 
+export function isAuthOK() { return getUser() != null; }
+
 
 export function storeUser(user) {
     store.set(STORE_USER, user)
