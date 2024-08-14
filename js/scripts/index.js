@@ -1,6 +1,7 @@
-import { signout } from "../handlers/auth.js";
+import { signOut } from "../handlers/auth.js";
 import { fetchProjects } from "../handlers/kite-projects.js";
 import { initLoginScript, isAuthOK, } from './login.js';
+import { initRegisterScript } from './register.js';
 
 
 // Create a new instance of the modal
@@ -12,15 +13,15 @@ const mainContainer = document.querySelector('#mainContainer');
 const dropdownSettings = document.querySelector('#dropdownSettings');
 const dropdownSettingsAuth = document.querySelector('#dropdownSettingsAuth');
 
-const settingsBtnRegister = document.querySelector('#settingsBtnRegister');
-const settingsBtnSignout = document.querySelector('#settingsBtnSignout');
+const settingsBtnSignOut = document.querySelector('#settingsBtnSignOut');
 
 
 init();
 
 function init() {
-    settingsBtnSignout.onclick = function () { logoutScript(); }
+    settingsBtnSignOut.onclick = function () { logoutScript(); }
     initLoginScript();
+    initRegisterScript();
     toggleActiveContent();
 }
 
@@ -55,6 +56,6 @@ export function displayRegisterModal() {
 }
 
 function logoutScript() {
-    signout();
+    signOut();
     toggleActiveContent();
 }
