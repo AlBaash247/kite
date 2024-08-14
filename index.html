@@ -124,28 +124,6 @@
         </div>
     </div>
 
-    <!-- Project List Item Template -->
-    <template id="projectListItemTemplate">
-        <li id="listItem" class="nav-item">
-            <a id="linkElement" href="#" class="nav-link py-3 border-bottom">
-                <!-- <i class="fa fa-home"></i> -->
-                <small id="projectTitle">Home</small>
-            </a>
-        </li>
-    </template>
-
-    <!-- tasks rows template -->
-    <template id="taskRowTemplate">
-        <tr>
-            <td id="task_id">id </td>
-            <td id="task_author_name">Author Name </td>
-            <td id="task_title"> title </td>
-            <td> <span id="task_status" class="card badge rounded-pill shadow">Status</span> </td>
-            <td><span id="task_importance" class="card badge rounded-pill shadow">Importance</span> </td>
-            <td id="task_due_date">Due Date </td>
-            <td id="task_content">Content </td>
-        </tr>
-    </template>
 
     <!-- Modal -->
     <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -241,6 +219,29 @@
             </div>
         </div>
     </div>
+
+        <!-- Project List Item Template -->
+        <template id="projectListItemTemplate">
+            <li id="listItem" class="nav-item">
+                <a id="linkElement" href="#" class="nav-link py-3 border-bottom">
+                    <!-- <i class="fa fa-home"></i> -->
+                    <small id="projectTitle">Home</small>
+                </a>
+            </li>
+        </template>
+    
+        <!-- tasks rows template -->
+        <template id="taskRowTemplate">
+            <tr>
+                <td id="task_id">id </td>
+                <td id="task_author_name">Author Name </td>
+                <td id="task_title"> title </td>
+                <td> <span id="task_status" class="card badge rounded-pill shadow">Status</span> </td>
+                <td><span id="task_importance" class="card badge rounded-pill shadow">Importance</span> </td>
+                <td id="task_due_date">Due Date </td>
+                <td id="task_content">Content </td>
+            </tr>
+        </template>
 
     <script type="module" src="js/scripts/index.js"></script>
 
