@@ -1,39 +1,36 @@
-import { API_ERROR_MSG_ALL_FIELDS_MANDATORY, API_ERROR_MSG_WRONG_CREDENTIALS } from "../constants/api.js";
 import { getUser, fetchLogin } from "../handlers/auth.js";
-import { loginModal, displayLoginModal, toggleActiveContent } from "./index.js";
+import { API_ERROR_MSG_VALIDATION_FAILED, API_ERROR_MSG_WRONG_CREDENTIALS } from "../constants/api.js";
+import { loginModal, displayLoginModal, displayRegisterModal, toggleActiveContent } from "./index.js";
 
 const btnLogin = document.querySelector('#btnLogin');
 
-const modalInputEmail = document.querySelector('#modalInputEmail');
-const modalInputPassword = document.querySelector('#modalInputPassword');
-const modalInputError_email = document.querySelector('#modalInputError_email');
-const modalInputError_password = document.querySelector('#modalInputPassword');
-const modalInputError_credentials = document.querySelector('#modalInputError_credentials');
-const modalBtnLogin = document.querySelector('#modalBtnLogin');
-const modalBtnRegister = document.querySelector('#modalBtnRegister');
-const settingsBtnLogin = document.querySelector('#settingsBtnLogin');
+const modalLoginInputEmail = document.querySelector('#modalLoginInputEmail');
+const modalLoginInputPassword = document.querySelector('#modalLoginInputPassword');
+const modalLoginInputError_email = document.querySelector('#modalLoginInputError_email');
+const modalLoginInputError_password = document.querySelector('#modalLoginInputPassword');
+const modalLoginInputError_credentials = document.querySelector('#modalLoginInputError_credentials');
+const modalLoginBtnLogin = document.querySelector('#modalLoginBtnLogin');
+const modalLoginBtnRegister = document.querySelector('#modalLoginBtnRegister');
 
 export function initLoginScript() {
 
-    modalBtnLogin.onclick = function () { loginScript(); }
+    modalLoginBtnLogin.onclick = function () { loginScript(); }
     btnLogin.onclick = function () { displayLoginModal(); }
     settingsBtnLogin.onclick = function () { displayLoginModal(); }
 
-    btnRegister.onclick = function () { displayRegisterModal(); }
-    modalBtnRegister.onclick = function () { displayRegisterModal(); }
-    settingsBtnRegister.onclick = function () { displayRegisterModal(); }
+    modalLoginBtnRegister.onclick = function () { displayRegisterModal(); }
 }
 
 export function isAuthOK() { return getUser() != null; }
 
 async function loginScript() {
-    modalInputError_email.innerText = "";
-    modalInputError_password.innerText = "";
-    modalInputError_credentials.innerText = "";
+    modalLoginInputError_email.innerText = "";
+    modalLoginInputError_password.innerText = "";
+    modalLoginInputError_credentials.innerText = "";
 
     const user = {};
-    user.email = modalInputEmail.value;
-    user.password = modalInputPassword.value;
+    user.email = modalLoginInputEmail.value;
+    user.password = modalLoginInputPassword.value;
 
     var loginResult = await fetchLogin(user);
     validateLoginResult(loginResult);
@@ -43,8 +40,8 @@ function validateLoginResult(loginResult) {
 
     if (loginResult.is_ok == false) {
         switch (loginResult.message) {
-            case API_ERROR_MSG_ALL_FIELDS_MANDATORY: showMissFields(loginResult.error); break;
-            case API_ERROR_MSG_WRONG_CREDENTIALS: modalInputError_credentials.innerText = loginResult.message; break;
+            case API_ERROR_MSG_VALIDATION_FAILED: showMissFields(loginResult.error); break;
+            case API_ERROR_MSG_WRONG_CREDENTIALS: modalLoginInputError_credentials.innerText = loginResult.message; break;
         }
     }
     else {
@@ -53,8 +50,6 @@ function validateLoginResult(loginResult) {
         toggleActiveContent();
         console.log(loginResult);
     }
-
-
 }
 
 function showMissFields(error) {
@@ -64,7 +59,7 @@ function showMissFields(error) {
 
     keys.forEach(key => {
         console.log(key);
-        var errorElement = document.querySelector(`#modalInputError_${key}`);
+        var errorElement = document.querySelector(`#modalLoginInputError_${key}`);
         errorElement.classList.remove('d-none');
         errorElement.innerText = error[key][0];
     });
