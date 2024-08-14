@@ -1,6 +1,6 @@
 import { signout } from "../handlers/auth.js";
 import { fetchProjects } from "../handlers/kite-projects.js";
-import {initLoginScript,isAuthOK, } from './login.js';
+import { initLoginScript, isAuthOK, } from './login.js';
 
 
 // Create a new instance of the modal
@@ -24,7 +24,7 @@ function init() {
     toggleActiveContent();
 }
 
-function toggleActiveContent() {
+export function toggleActiveContent() {
     console.log('isAuthOk ', isAuthOK());
 
     if (isAuthOK()) {
