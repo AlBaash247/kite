@@ -18,7 +18,7 @@
     <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Kite</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,7 +29,7 @@
                     </li>
 
                 </ul>
-            </div>
+            </div> -->
         </div>
     </nav>
 
@@ -54,7 +54,7 @@
 
                     </a>
                     <ul id="settingsContainer" class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-                        
+
                         <div id="dropdownSettingsAuth">
                             <li><a class="dropdown-item" href="#"><i class="bi bi-plus"></i>New project...</a></li>
                             <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -62,7 +62,7 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <button id="settingsBtnSignout" class="dropdown-item">
+                                <button id="settingsBtnSignOut" class="dropdown-item">
                                     <i class="bi bi-box-arrow-left"></i> Sign out</button>
                             </li>
                         </div>
@@ -96,6 +96,11 @@
             </div>
 
             <div id="mainContainer" class="container-fluid flex-grow-1 mt-2">
+                <div class="d-flex flex-row-reverse my-2">
+                    <button class="btn btn-success justify-self-right"><span class="bi bi-plus">New Task</span>
+                    </button>
+                </div>
+
                 <div class="d-flex justify-content-center align-items-center ">
 
                     <table class="table table-lg  table-hover">
@@ -154,30 +159,30 @@
                 <div class="modal-body">
 
                     <div class="form-floating mb-3">
-                        <input id="modalInputEmail" type="email" class="form-control" placeholder="name@example.com"
-                            value="albaash247@gmail.com">
-                        <label for="modalInputEmail">Email address</label>
-                        <p id="modalInputError_email" class="text-danger"></p>
+                        <input id="modalLoginInputEmail" type="email" class="form-control"
+                            placeholder="name@example.com" value="albaash247@gmail.com">
+                        <label for="modalLoginInputEmail">Email address</label>
+                        <p id="modalLoginInputError_email" class="text-danger"></p>
                     </div>
                     <div class="form-floating">
-                        <input id="modalInputPassword" type="password" class="form-control" placeholder="Password"
+                        <input id="modalLoginInputPassword" type="password" class="form-control" placeholder="Password"
                             value="123123">
-                        <label for="modalInputPassword">Password</label>
-                        <p id="modalInputError_password" class="text-danger"></p>
+                        <label for="modalLoginInputPassword">Password</label>
+                        <p id="modalLoginInputError_password" class="text-danger"></p>
                     </div>
 
-                    <p id="modalInputError_credentials" class="text-danger fs-5"></p>
+                    <p id="modalLoginInputError_credentials" class="text-danger fs-5"></p>
                 </div>
 
                 <div class="container modal-footer">
                     <div class="d-flex w-100">
                         <div class="flex-fill">
                             No Account:
-                            <button id="modalBtnRegister" type="button" class="btn btn-success"
+                            <button id="modalLoginBtnRegister" type="button" class="btn btn-success"
                                 data-bs-dismiss="modal">Register</button>
                         </div>
                         <button type="button" class="btn btn-secondary mx-1" data-bs-dismiss="modal">Close</button>
-                        <button id="modalBtnLogin" type="button" class="btn btn-primary mx-1">Login</button>
+                        <button id="modalLoginBtnLogin" type="button" class="btn btn-primary mx-1">Login</button>
                     </div>
 
                 </div>
@@ -204,15 +209,15 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input id="modalRegisterInputEmail" type="email" class="form-control" placeholder="name@example.com"
-                            value="tst_user_1@mail.com">
+                        <input id="modalRegisterInputEmail" type="email" class="form-control"
+                            placeholder="name@example.com" value="tst_user_1@mail.com">
                         <label for="modalRegisterInputEmail">Email address</label>
                         <p id="modalRegisterInputError_email" class="text-danger"></p>
                     </div>
 
                     <div class="form-floating">
-                        <input id="modalRegisterInputPassword" type="password" class="form-control" placeholder="Password"
-                            value="123123">
+                        <input id="modalRegisterInputPassword" type="password" class="form-control"
+                            placeholder="Password" value="123123">
                         <label for="modalRegisterInputPassword">Password</label>
                         <p id="modalRegisterInputError_password" class="text-danger"></p>
                     </div>
@@ -228,7 +233,8 @@
                                 data-bs-dismiss="modal">Login</button>
                         </div>
                         <button type="button" class="btn btn-secondary mx-1" data-bs-dismiss="modal">Close</button>
-                        <button id="modalRegisterBtnRegister" type="button" class="btn btn-success mx-1">Register</button>
+                        <button id="modalRegisterBtnRegister" type="button"
+                            class="btn btn-success mx-1">Register</button>
                     </div>
 
                 </div>

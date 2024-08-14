@@ -21,7 +21,7 @@ export const API_KEY_IMPORTANCE_LOW_PRIORITY = "low_priority";
 export const API_KEY_IMPORTANCE_NORMAL = "normal";
 export const API_KEY_IMPORTANCE_URGENT = "urgent";
 
-export const API_ERROR_MSG_ALL_FIELDS_MANDATORY = "All fields are mandatory.";
+export const API_ERROR_MSG_VALIDATION_FAILED = "Validation failed";
 export const API_ERROR_MSG_WRONG_CREDENTIALS = "wrong credentials";
 
 
