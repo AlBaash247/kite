@@ -16,9 +16,9 @@ export const API_KEY_STATUS_TODO = "todo";
 export const API_KEY_STATUS_IN_PROGRESS = "in_progress";
 export const API_KEY_STATUS_DONE = "done";
 
-export const API_KEY_IMPORTANCE_IMPORTANT = "important";
 export const API_KEY_IMPORTANCE_LOW_PRIORITY = "low_priority";
 export const API_KEY_IMPORTANCE_NORMAL = "normal";
+export const API_KEY_IMPORTANCE_IMPORTANT = "important";
 export const API_KEY_IMPORTANCE_URGENT = "urgent";
 
 export const API_ERROR_MSG_VALIDATION_FAILED = "Validation failed";
