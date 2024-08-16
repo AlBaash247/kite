@@ -32,7 +32,7 @@
 
         <div class="d-flex justify-content-center mt-5">
 
-            <div class="container">
+            <div class="container card shadow p-4">
 
                 <div class="mb-3">
                     <label for="inputTitle" class="form-label">Task Title</label>
@@ -40,9 +40,9 @@
                     <p id="inputError_title" class="text-danger"></p>
                 </div>
 
-                <div class="d-flex justify-content-between">
+                <div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
 
-                    <div class="container form-group ps-0 mb-3">
+                    <div class="container form-group mb-3">
                         <label for="inputStatus" class="form-label">Task Status</label>
                         <select id="inputStatus" class="form-control">
                             <option value="todo">To Do</option>
@@ -63,7 +63,7 @@
                         <p id="inputError_importance" class="text-danger"></p>
                     </div>
 
-                    <div class="container form-group pe-0 mb-3">
+                    <div class="container form-group mb-3">
                         <label for="inputDueDate" class="form-label">Due Date</label>
                         <input id="inputDueDate" type="date" class="form-control">
                         <p id="inputError_due_date" class="text-danger"></p>
@@ -76,9 +76,13 @@
                     <p id="inputError_content" class="text-danger"></p>
                 </div>
 
-                <div class="d-flex justify-content-end ">
+                <div class="d-flex justify-content-end mt-3">
+                    <p id="formError" class="text-danger"></p>
+                </div>
+
+                <div class="d-flex justify-content-end mt-3">
                     <a class="btn btn-lg btn-secondary" href="../index.html">Cancel</a>
-                    <button id="btnSaveExit" class="btn btn-lg btn-success mx-4">Save & Exit</button>
+                    <button id="btnSaveExit" class="btn btn-lg btn-success mx-3">Save & Exit</button>
                     <button id="btnSave" class="btn btn-lg btn-primary">Save</button>
                 </div>
 
