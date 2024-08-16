@@ -1,5 +1,5 @@
-import { getUser } from "./auth.js";
-import { API_URL_PROJECTS, API_KEY_AUTHOR_ID, HTTP_METHOD_POST_NO_CACHE } from "../constants/api.js";
+import { getUser } from "../constants/store-keys.js";
+import { API_URL_GET_PROJECTS, API_KEY_AUTHOR_ID, HTTP_METHOD_POST_NO_CACHE } from "../constants/api.js";
 import { adapter } from "../adapters/projects-adapter.js";
 
 export async function fetchProjects() {
@@ -8,7 +8,7 @@ export async function fetchProjects() {
         var jsonRequestBody = {};
         jsonRequestBody[API_KEY_AUTHOR_ID] = getUser().id
 
-        const response = await fetch(API_URL_PROJECTS, HTTP_METHOD_POST_NO_CACHE(jsonRequestBody));
+        const response = await fetch(API_URL_GET_PROJECTS, HTTP_METHOD_POST_NO_CACHE(jsonRequestBody));
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
