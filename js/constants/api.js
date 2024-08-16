@@ -6,8 +6,9 @@ const selectedEnv = localEnv;
 
 export const API_URL_LOGIN = `${selectedEnv}/api/kite/login`;
 export const API_URL_REGISTER = `${selectedEnv}/api/kite/register`;
-export const API_URL_PROJECTS = `${selectedEnv}/api/kite/projects/`;
-export const API_URL_TASKS = `${selectedEnv}/api/kite/tasks`;
+export const API_URL_GET_PROJECTS = `${selectedEnv}/api/kite/projects`;
+export const API_URL_GET_TASKS = `${selectedEnv}/api/kite/tasks`;
+export const API_URL_STORE_TASK = `${selectedEnv}/api/kite/tasks/store`;
 
 export const API_KEY_AUTHOR_ID = "author_id";
 export const API_KEY_PROJECT_ID = "project_id";
@@ -21,9 +22,14 @@ export const API_KEY_IMPORTANCE_NORMAL = "normal";
 export const API_KEY_IMPORTANCE_IMPORTANT = "important";
 export const API_KEY_IMPORTANCE_URGENT = "urgent";
 
+export const API_KEY_TITLE = "title";
+export const API_KEY_STATUS = "status";
+export const API_KEY_IMPORTANCE = "importance";
+export const API_KEY_DUE_DATE = "due_date";
+export const API_KEY_CONTENT = "content";
+
 export const API_ERROR_MSG_VALIDATION_FAILED = "Validation failed";
 export const API_ERROR_MSG_WRONG_CREDENTIALS = "wrong credentials";
-
 
 export const HTTP_METHOD_GET_NO_CACHE = {
     method: 'GET', headers: {
