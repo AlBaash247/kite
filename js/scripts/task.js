@@ -1,4 +1,4 @@
-import { getUser, getSelectedProjectId } from '../constants/store-keys.js';
+import { getUser, getSelectedProjectId } from '../constants/my-store.js';
 import {
     API_KEY_AUTHOR_ID, API_KEY_PROJECT_ID, API_KEY_TITLE,
     API_KEY_STATUS, API_KEY_IMPORTANCE, API_KEY_DUE_DATE,
@@ -38,11 +38,6 @@ function setMinimumDueDate() {
     inputDueDate.setAttribute('min', today);
 }
 
-function initEditTaskScript() {
-    const stepNavCurrentPage = document.querySelector('#stepNavCurrentPage');
-    stepNavCurrentPage.innerHTML = 'Edit Task;';
-    init();
-}
 
 async function addNewTask() {
 
@@ -66,7 +61,6 @@ async function addNewTask() {
     var addTaskResult = await fetchAddTask(task);
     validateResult(addTaskResult);
 }
-
 
 function validateResult(result) {
 
