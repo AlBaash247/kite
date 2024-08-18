@@ -50,11 +50,11 @@ function setMinimumDueDate() {
 
 async function updateNewTask() {
 
-    inputError_title.innerHTML = '';
-    inputError_status.innerHTML = '';
-    inputError_importance.innerHTML = '';
-    inputError_due_date.innerHTML = '';
-    inputError_content.innerHTML = '';
+    inputError_title.innerText = '';
+    inputError_status.innerText = '';
+    inputError_importance.innerText = '';
+    inputError_due_date.innerText = '';
+    inputError_content.innerText = '';
 
     const task = selectedTask;
     task[API_KEY_TITLE] = inputTitle.value;
