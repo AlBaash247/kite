@@ -1,3 +1,4 @@
+import { storeSelectedTask } from '../constants/my-store.js';
 import {
     API_KEY_STATUS_TODO, API_KEY_STATUS_IN_PROGRESS, API_KEY_STATUS_DONE,
     API_KEY_IMPORTANCE_IMPORTANT, API_KEY_IMPORTANCE_LOW_PRIORITY, API_KEY_IMPORTANCE_NORMAL, API_KEY_IMPORTANCE_URGENT
@@ -28,6 +29,7 @@ function createRow(task) {
 
     const clone = taskRowTemplate.content.cloneNode(true);
 
+    const task_item = clone.querySelector('#task_item');
     const task_id = clone.querySelector('#task_id');
     const task_title = clone.querySelector('#task_title');
     const task_author_name = clone.querySelector('#task_author_name');
@@ -55,6 +57,12 @@ function createRow(task) {
         case API_KEY_IMPORTANCE_LOW_PRIORITY: task_importance.classList.add("text-bg-light"); break;
         case API_KEY_IMPORTANCE_NORMAL: task_importance.classList.add("text-bg-info"); break;
         case API_KEY_IMPORTANCE_URGENT: task_importance.classList.add("text-bg-danger"); break;
+    }
+
+
+    task_item.onclick = function () {
+        storeSelectedTask(task);
+        window.location.href = './pages/edit-task.html';
     }
 
     contentContainer.appendChild(clone);
