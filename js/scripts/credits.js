@@ -17,6 +17,11 @@ const creditList = [
         link_label: "jsdelivr.com/store",
         link: "https://www.jsdelivr.com/package/npm/store"
     },
+    {
+        item_name: "Comment Section | List of comments in the view task page",
+        link_label: "bbbootstrap.com",
+        link: "https://bbbootstrap.com/snippets/bootstrap-comments-template-90811385"
+    },
 
 ];
 
