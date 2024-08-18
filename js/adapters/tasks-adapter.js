@@ -29,22 +29,22 @@ function createRow(task) {
 
     const clone = taskRowTemplate.content.cloneNode(true);
 
-    const taskItem = clone.querySelector('#taskItem');
     const taskId = clone.querySelector('#taskId');
     const taskTitle = clone.querySelector('#taskTitle');
     const taskAuthorName = clone.querySelector('#taskAuthorName');
     const taskStatus = clone.querySelector('#taskStatus');
     const taskImportance = clone.querySelector('#taskImportance');
-    const task_due_date = clone.querySelector('#task_due_date');
-    const task_content = clone.querySelector('#task_content');
+    const taskDueDate = clone.querySelector('#taskDueDate');
+    const btnEditTask = clone.querySelector('#btnEditTask');
+    // const taskContent = clone.querySelector('#taskContent');
 
     taskId.innerText = task.id;
     taskTitle.innerText = task.title;
     taskAuthorName.innerText = task.author_name;
     taskStatus.innerText = task.status;
     taskImportance.innerText = task.importance;
-    task_due_date.innerText = task.due_date;
-    task_content.innerText = task.content;
+    taskDueDate.innerText = task.due_date;
+    // taskContent.innerText = task.content;
 
     switch (task.status) {
         case API_KEY_STATUS_TODO: taskStatus.classList.add("text-bg-secondary"); break;
@@ -60,7 +60,7 @@ function createRow(task) {
     }
 
 
-    taskItem.onclick = function () {
+    btnEditTask.onclick = function () {
         storeSelectedTask(task);
         window.location.href = './pages/edit-task.html';
     }

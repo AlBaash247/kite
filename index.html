@@ -115,7 +115,7 @@
                                 <th>Status</th>
                                 <th>Importance</th>
                                 <th>Due Date</th>
-                                <th>Content</th>
+                                <th>Operations</th>
                             </tr>
                         </thead>
                         <tbody id="contentContainer" class="table-group-divider">
@@ -236,14 +236,17 @@
 
     <!-- tasks rows template -->
     <template id="taskRowTemplate">
-        <tr id="taskItem" class="clickable">
+        <tr>
             <td id="taskId">id </td>
             <td id="taskAuthorName">Author Name </td>
             <td id="taskTitle"> title </td>
             <td> <span id="taskStatus" class="card badge rounded-pill shadow">Status</span> </td>
             <td><span id="taskImportance" class="card badge rounded-pill shadow">Importance</span> </td>
-            <td id="task_due_date">Due Date </td>
-            <td id="task_content">Content </td>
+            <td id="taskDueDate">Due Date </td>
+            <td id="Operations">
+                <button id="btnViewComments" class="btn btn-outline-dark"><i class="bi bi-eye-fill"></i></button>
+                <button id="btnEditTask" class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i></button>
+            </td>
         </tr>
     </template>
 
