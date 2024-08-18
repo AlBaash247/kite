@@ -1,7 +1,7 @@
 
 import { API_KEY_PROJECT_ID } from "../constants/api.js";
 import { fetchTasks } from '../handlers/kite-tasks.js';
-import { storeSelectedProjectId } from "../constants/store-keys.js";
+import { storeSelectedProjectId, getSelectedProjectId } from "../constants/my-store.js";
 
 const projectListItemTemplate = document.querySelector('#projectListItemTemplate');
 const projectsContainer = document.querySelector('#projectsContainer');
@@ -25,13 +25,20 @@ function createListItem(project, index) {
     listItem.dataset.project_id = project.id;
     projectTitle.innerText = project.project_name;
 
-    if (index == 0) {
+    if (index == 0 && getSelectedProjectId() == null) {
         storeSelectedProjectId(listItem.dataset.project_id);
         linkElement.classList.add("active");
         var jsonRequestBody = {};
         jsonRequestBody[API_KEY_PROJECT_ID] = listItem.dataset.project_id;
         fetchTasks(jsonRequestBody);
     }
+    else if (getSelectedProjectId() == listItem.dataset.project_id) {
+        linkElement.classList.add("active");
+        var jsonRequestBody = {};
+        jsonRequestBody[API_KEY_PROJECT_ID] = listItem.dataset.project_id;
+        fetchTasks(jsonRequestBody);
+    }
+
 
 
     listItem.onclick = function () {
