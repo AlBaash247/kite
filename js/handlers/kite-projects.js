@@ -1,4 +1,4 @@
-import { getUser } from "../constants/store-keys.js";
+import { getUser } from "../constants/my-store.js";
 import { API_URL_GET_PROJECTS, API_KEY_AUTHOR_ID, HTTP_METHOD_POST_NO_CACHE } from "../constants/api.js";
 import { adapter } from "../adapters/projects-adapter.js";
 

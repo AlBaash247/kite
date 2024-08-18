@@ -1,4 +1,4 @@
-import { storeUser, getUser } from '../constants/store-keys.js';
+import { storeUser, getUser } from '../constants/my-store.js';
 import { API_URL_LOGIN, API_URL_REGISTER, HTTP_METHOD_POST_NO_CACHE } from '../constants/api.js';
 
 export function isAuthOK() { return getUser() != null; }
