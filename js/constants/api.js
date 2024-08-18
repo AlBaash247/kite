@@ -10,9 +10,12 @@ export const API_URL_GET_PROJECTS = `${selectedEnv}/api/kite/projects`;
 export const API_URL_GET_TASKS = `${selectedEnv}/api/kite/tasks`;
 export const API_URL_STORE_TASK = `${selectedEnv}/api/kite/tasks/store`;
 export const API_URL_UPDATE_TASK = `${selectedEnv}/api/kite/tasks/update`;
+export const API_URL_GET_COMMENTS = `${selectedEnv}/api/kite/comments`;
+
 
 export const API_KEY_AUTHOR_ID = "author_id";
 export const API_KEY_PROJECT_ID = "project_id";
+export const API_KEY_TASK_ID = "task_id";
 
 export const API_KEY_STATUS_TODO = "todo";
 export const API_KEY_STATUS_IN_PROGRESS = "in_progress";

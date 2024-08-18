@@ -35,6 +35,7 @@ function createRow(task) {
     const taskStatus = clone.querySelector('#taskStatus');
     const taskImportance = clone.querySelector('#taskImportance');
     const taskDueDate = clone.querySelector('#taskDueDate');
+    const btnViewTask = clone.querySelector('#btnViewTask');
     const btnEditTask = clone.querySelector('#btnEditTask');
     // const taskContent = clone.querySelector('#taskContent');
 
@@ -59,6 +60,11 @@ function createRow(task) {
         case API_KEY_IMPORTANCE_URGENT: taskImportance.classList.add("text-bg-danger"); break;
     }
 
+
+    btnViewTask.onclick = function () {
+        storeSelectedTask(task);
+        window.location.href = './pages/view-task.html';
+    }
 
     btnEditTask.onclick = function () {
         storeSelectedTask(task);
