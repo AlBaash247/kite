@@ -40,7 +40,7 @@
             <!-- ref:  https://bbbootstrap.com/snippets/bootstrap-5-menu-only-sidebar-42538365 -->
             <div class="d-flex flex-column flex-shrink-1 bg-light" style="height: 94vh; width: 130px;">
                 <ul id="projectsContainer" class="nav nav-pills nav-flush flex-column mb-auto text-center">
-                    <!-- projects list items template here -->
+                    <!-- projects list items template lives here -->
                 </ul>
 
                 <div class="dropdown border-top"> <a href="#"
@@ -119,6 +119,7 @@
                             </tr>
                         </thead>
                         <tbody id="contentContainer" class="table-group-divider">
+                            <!-- tasks rows template lives here -->
                         </tbody>
                     </table>
 
@@ -235,7 +236,7 @@
 
     <!-- tasks rows template -->
     <template id="taskRowTemplate">
-        <tr>
+        <tr id="task_item" class="clickable">
             <td id="task_id">id </td>
             <td id="task_author_name">Author Name </td>
             <td id="task_title"> title </td>
