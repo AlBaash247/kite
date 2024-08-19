@@ -1,7 +1,6 @@
-import { getUser, getSelectedTask } from '../constants/my-store.js';
+import { getUser, getSelectedTask, getSelectedComment } from '../constants/my-store.js';
 import {
-    API_KEY_TITLE, API_KEY_STATUS, API_KEY_IMPORTANCE, API_KEY_DUE_DATE,
-    API_KEY_CONTENT, API_ERROR_MSG_VALIDATION_FAILED, API_ERROR_MSG_WRONG_CREDENTIALS,
+    API_ERROR_MSG_VALIDATION_FAILED, API_ERROR_MSG_WRONG_CREDENTIALS,
     API_KEY_AUTHOR_ID, API_KEY_TASK_ID, API_KEY_COMMENT
 } from "../constants/api.js";
 import { fetchComments, fetchStoreComment } from "../handlers/kite-comments.js";
@@ -23,6 +22,14 @@ const btnSave = document.querySelector('#btnSave');
 const btnScroll = document.getElementById("btnScroll");
 
 
+// Create a new instance of the modal
+export const editCommentModal = new bootstrap.Modal(document.getElementById('editCommentModal'));
+const modalEditCommentInputComment = document.querySelector('#modalEditCommentInputComment');
+const modalEditCommentInputError_comment = document.querySelector('#modalEditCommentInputError_comment');
+const modalEditCommentFormError = document.querySelector('#modalEditCommentFormError');
+
+
+
 init();
 
 function init() {
@@ -41,7 +48,6 @@ function init() {
     const selectedTaskId = {};
     selectedTaskId[API_KEY_TASK_ID] = getSelectedTask().id;
     fetchComments(selectedTaskId);
-
 }
 
 
@@ -90,9 +96,19 @@ function showMissFields(error) {
     });
 }
 
-
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () { scrollFunction() };
+
+
+export function displayEditCommentModal() {
+    modalEditCommentInputError_comment.innerText = '';
+    modalEditCommentFormError.innerText = '';
+    modalEditCommentInputComment.innerHTML = getSelectedComment().comment;
+
+    editCommentModal.show();
+}
+
+
 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
