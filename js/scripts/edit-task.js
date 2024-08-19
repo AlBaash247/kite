@@ -93,7 +93,7 @@ function showMissFields(error) {
 
     keys.forEach(key => {
         console.log(key);
-        var errorElement = document.querySelector(`#InputError_${key}`);
+        var errorElement = document.querySelector(`#inputError_${key}`);
         console.log(errorElement.id);
 
         errorElement.classList.remove('d-none');
