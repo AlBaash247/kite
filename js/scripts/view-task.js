@@ -1,9 +1,9 @@
 import { getUser, getSelectedTask, getSelectedComment } from '../constants/my-store.js';
 import {
     API_ERROR_MSG_VALIDATION_FAILED, API_ERROR_MSG_WRONG_CREDENTIALS,
-    API_KEY_AUTHOR_ID, API_KEY_TASK_ID, API_KEY_COMMENT
+    API_KEY_AUTHOR_ID, API_KEY_TASK_ID, API_KEY_COMMENT,
 } from "../constants/api.js";
-import { fetchComments, fetchStoreComment } from "../handlers/kite-comments.js";
+import { fetchComments, fetchStoreComment, fetchUpdateComment } from "../handlers/kite-comments.js";
 
 
 let shouldExit = false;
@@ -23,12 +23,11 @@ const btnScroll = document.getElementById("btnScroll");
 
 
 // Create a new instance of the modal
-export const editCommentModal = new bootstrap.Modal(document.getElementById('editCommentModal'));
+const editCommentModal = new bootstrap.Modal(document.getElementById('editCommentModal'));
 const modalEditCommentInputComment = document.querySelector('#modalEditCommentInputComment');
 const modalEditCommentInputError_comment = document.querySelector('#modalEditCommentInputError_comment');
 const modalEditCommentFormError = document.querySelector('#modalEditCommentFormError');
-
-
+const modalEditCommentBtnUpdate = document.querySelector('#modalEditCommentBtnUpdate');
 
 init();
 
@@ -43,6 +42,9 @@ function init() {
 
     btnSaveExit.onclick = function () { shouldExit = true; addComment(); };
     btnSave.onclick = function () { shouldExit = false; addComment(); };
+   
+    modalEditCommentBtnUpdate.onclick = function () {updateCommentScript();};
+
     btnScroll.onclick = function () { topFunction(); };
 
     const selectedTaskId = {};
@@ -108,6 +110,14 @@ export function displayEditCommentModal() {
     editCommentModal.show();
 }
 
+
+function updateCommentScript() {
+    const commentObject = getSelectedComment();
+    commentObject[API_KEY_COMMENT] = modalEditCommentInputComment.value;
+    
+    const result = fetchUpdateComment(commentObject); 
+    validateResult(result);
+}
 
 
 function scrollFunction() {
