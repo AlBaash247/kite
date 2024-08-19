@@ -14,20 +14,13 @@ const inputStatus = document.querySelector('#inputStatus');
 const inputImportance = document.querySelector('#inputImportance');
 const inputDueDate = document.querySelector('#inputDueDate');
 const inputContent = document.querySelector('#inputContent');
-const inputError_title = document.querySelector('#inputError_title');
-const inputError_status = document.querySelector('#inputError_status');
-const inputError_importance = document.querySelector('#inputError_importance');
-const inputError_due_date = document.querySelector('#inputError_due_date');
-const inputError_content = document.querySelector('#inputError_content');
-const formError = document.querySelector('#formError');
 
 const inputComment = document.querySelector('#inputComment');
 const inputError_comment = document.querySelector('#inputError_comment');
 
 const btnSaveExit = document.querySelector('#btnSaveExit');
 const btnSave = document.querySelector('#btnSave');
-
-let btnScroll = document.getElementById("btnScroll");
+const btnScroll = document.getElementById("btnScroll");
 
 
 init();
@@ -96,8 +89,6 @@ function showMissFields(error) {
         errorElement.innerText = error[key][0];
     });
 }
-
-
 
 
 // When the user scrolls down 20px from the top of the document, show the button
