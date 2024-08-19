@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/task.css">
+    <link rel="stylesheet" href="../css/comment.css">
 </head>
 
 <body>
@@ -30,7 +31,7 @@
 
     <div class="container-fluid p-0">
 
-        <div class="d-flex justify-content-center mt-5">
+        <div class="d-flex justify-content-center my-5">
 
             <div class="container card shadow p-4">
 
@@ -83,40 +84,49 @@
                 <hr>
 
                 <!-- comment section -->
-                <!-- Ref::  https://bbbootstrap.com/snippets/bootstrap-comments-template-90811385 -->
+                <section id="comments-section">
+                    <!-- Ref::  https://bbbootstrap.com/snippets/bootstrap-comments-template-90811385 -->
+                    <div class="my-container justify-content-center mt-5 border-left border-right my-5">
+                        <div class="d-flex justify-content-between pt-3 pb-2">
 
-                <div class="my-container justify-content-center mt-5 border-left border-right my-5">
-                    <div class="d-flex justify-content-between pt-3 pb-2">
+                            <div class="flex-fill px-4">
+                                <textarea id="inputComment" class="form-control addtxt"
+                                    placeholder="+ Add a Comment"></textarea>
+                                <p id="inputError_comment" class="text-danger"></p>
 
-                        <div class="flex-fill px-4">
-                            <textarea class="form-control addtxt" placeholder="+ Add a Commment"></textarea>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="d-flex justify-content-end my-3 px-4">
-                        <a class="btn btn-secondary" href="../index.html">Cancel</a>
-                        <button id="btnSaveExit" class="btn btn-success mx-3">Save & Exit</button>
-                        <button id="btnSave" class="btn btn-primary">Save</button>
-                    </div>
+                        <div class="d-flex justify-content-end my-3 px-4">
+                            <a class="btn btn-secondary" href="../index.html">Cancel</a>
+                            <button id="btnSaveExit" class="btn btn-success mx-3">Save & Exit</button>
+                            <button id="btnSave" class="btn btn-primary">Save</button>
+                        </div>
 
-                    <div id="commentsContainer" class="mt-5">
-                        <!-- comment card template lives here -->
-                    
-                    </div>
+                        <div id="commentsContainer" class="mt-5">
+                            <!-- comment card template lives here -->
 
-                </div>
+                        </div>
+
+                    </div>
+                </section>
                 <!-- comment section -->
+
+                <button id="btnScroll" title="Go to top" class="btn btn-lg btn-outline-success"><i
+                        class="bi bi-arrow-up"></i>Top</button>
+
 
             </div>
         </div>
     </div>
 
 
+
     <!-- comment card template lives here -->
     <template id="commentCardTemplate">
         <div class="d-flex justify-content-center mt-2 py-2 px-4">
             <!-- comment card template lives here -->
-            <div id="commmentCard" class="second card py-2 px-2 w-100 bg-light">
+            <div id="commentCard" class="second card py-2 px-2 w-100 bg-light">
                 <div class="d-flex justify-content-between py-1 pt-2 mb-3">
                     <div class="rounded rounded-pill btn btn-outline-dark shadow px-3">
                         <!-- <img src="https://i.imgur.com/AgAC1Is.jpg" width="18"> -->

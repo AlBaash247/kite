@@ -11,6 +11,7 @@ export const API_URL_GET_TASKS = `${selectedEnv}/api/kite/tasks`;
 export const API_URL_STORE_TASK = `${selectedEnv}/api/kite/tasks/store`;
 export const API_URL_UPDATE_TASK = `${selectedEnv}/api/kite/tasks/update`;
 export const API_URL_GET_COMMENTS = `${selectedEnv}/api/kite/comments`;
+export const API_URL_STORE_COMMENT = `${selectedEnv}/api/kite/comments/store`;
 
 
 export const API_KEY_AUTHOR_ID = "author_id";
@@ -31,6 +32,8 @@ export const API_KEY_STATUS = "status";
 export const API_KEY_IMPORTANCE = "importance";
 export const API_KEY_DUE_DATE = "due_date";
 export const API_KEY_CONTENT = "content";
+
+export const API_KEY_COMMENT = "comment";
 
 export const API_ERROR_MSG_VALIDATION_FAILED = "Validation failed";
 export const API_ERROR_MSG_WRONG_CREDENTIALS = "wrong credentials";
