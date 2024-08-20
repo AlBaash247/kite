@@ -1,3 +1,4 @@
+import { getUser } from '../constants/my-store.js';
 import { isAuthOK, signOut } from "../handlers/auth.js";
 import { fetchProjects } from "../handlers/kite-projects.js";
 import { initLoginScript } from './login.js';
