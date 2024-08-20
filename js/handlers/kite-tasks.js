@@ -1,3 +1,4 @@
+import { mainFetch } from '../handlers/main-fetch.js';
 import {
     API_URL_GET_TASKS, API_URL_STORE_TASK,
     API_URL_UPDATE_TASK, HTTP_METHOD_POST_NO_CACHE
@@ -5,72 +6,17 @@ import {
 import { adapter } from "../adapters/tasks-adapter.js";
 
 export async function fetchTasks(jsonRequestBody) {
+    const responseObject = await mainFetch(API_URL_GET_TASKS, jsonRequestBody);
+    adapter(responseObject.data.tasks);
 
-    try {
-        const response = await fetch(API_URL_GET_TASKS, HTTP_METHOD_POST_NO_CACHE(jsonRequestBody));
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const responseObject = await response.json();
-        adapter(responseObject.data.tasks);
-
-    } catch (error) {
-        console.error('Error fetching data:', error);
-    }
 }
 
 export async function fetchAddTask(jsonRequestBody) {
-
-    let result = {};
-    try {
-        const response = await fetch(API_URL_STORE_TASK, HTTP_METHOD_POST_NO_CACHE(jsonRequestBody));
-        if (!response.ok) {
-
-            if (response.status == 422) {
-                const responseObject = await response.json();
-                result = responseObject;
-            }
-            else {
-                result.is_ok = false;
-                result.message = `HTTP error! status: ${response.status}`;
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return result;
-        }
-        const responseObject = await response.json();
-        return responseObject;
-
-    } catch (error) {
-        result.is_ok = false;
-        result.message = 'Error fetching data: ' + error;
-        return result;
-    }
+    const responseObject = await mainFetch(API_URL_STORE_TASK, jsonRequestBody);
+    return responseObject;
 }
 
 export async function fetchUpdateTask(jsonRequestBody) {
-
-    let result = {};
-    try {
-        const response = await fetch(API_URL_UPDATE_TASK, HTTP_METHOD_POST_NO_CACHE(jsonRequestBody));
-        if (!response.ok) {
-
-            if (response.status == 422) {
-                const responseObject = await response.json();
-                result = responseObject;
-            }
-            else {
-                result.is_ok = false;
-                result.message = `HTTP error! status: ${response.status}`;
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return result;
-        }
-        const responseObject = await response.json();
-        return responseObject;
-
-    } catch (error) {
-        result.is_ok = false;
-        result.message = 'Error fetching data: ' + error;
-        return result;
-    }
+    const responseObject = await mainFetch(API_URL_UPDATE_TASK, jsonRequestBody);
+    return responseObject;
 }

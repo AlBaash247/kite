@@ -2,6 +2,7 @@ import { isAuthOK, signOut } from "../handlers/auth.js";
 import { fetchProjects } from "../handlers/kite-projects.js";
 import { initLoginScript } from './login.js';
 import { initRegisterScript } from './register.js';
+import { API_KEY_AUTHOR_ID } from '../constants/api.js';
 
 
 // Create a new instance of the modal
@@ -35,7 +36,9 @@ export function toggleActiveContent() {
         dropdownSettings.classList.add('d-none');
         dropdownSettingsAuth.classList.remove('d-none');
 
-        fetchProjects();
+        var jsonRequestBody = {};
+        jsonRequestBody[API_KEY_AUTHOR_ID] = getUser().id
+        fetchProjects(jsonRequestBody);
     } else {
         tempContainer.classList.remove('d-none');
         mainContainer.classList.add('d-none');

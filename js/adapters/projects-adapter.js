@@ -28,6 +28,7 @@ function createListItem(project, index) {
     if (index == 0 && getSelectedProjectId() == null) {
         storeSelectedProjectId(listItem.dataset.project_id);
         linkElement.classList.add("active");
+
         var jsonRequestBody = {};
         jsonRequestBody[API_KEY_PROJECT_ID] = listItem.dataset.project_id;
         fetchTasks(jsonRequestBody);

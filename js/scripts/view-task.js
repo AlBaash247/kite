@@ -42,8 +42,8 @@ function init() {
 
     btnSaveExit.onclick = function () { shouldExit = true; addComment(); };
     btnSave.onclick = function () { shouldExit = false; addComment(); };
-   
-    modalEditCommentBtnUpdate.onclick = function () {updateCommentScript();};
+
+    modalEditCommentBtnUpdate.onclick = function () { updateCommentScript(); };
 
     btnScroll.onclick = function () { topFunction(); };
 
@@ -114,8 +114,8 @@ export function displayEditCommentModal() {
 function updateCommentScript() {
     const commentObject = getSelectedComment();
     commentObject[API_KEY_COMMENT] = modalEditCommentInputComment.value;
-    
-    const result = fetchUpdateComment(commentObject); 
+
+    const result = fetchUpdateComment(commentObject);
     validateResult(result);
 }
 
