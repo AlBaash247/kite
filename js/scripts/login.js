@@ -8,7 +8,7 @@ const modalLoginInputEmail = document.querySelector('#modalLoginInputEmail');
 const modalLoginInputPassword = document.querySelector('#modalLoginInputPassword');
 const modalLoginInputError_email = document.querySelector('#modalLoginInputError_email');
 const modalLoginInputError_password = document.querySelector('#modalLoginInputPassword');
-const modalLoginInputError_credentials = document.querySelector('#modalLoginInputError_credentials');
+const modalLoginFormError = document.querySelector('#modalLoginFormError');
 const modalLoginBtnLogin = document.querySelector('#modalLoginBtnLogin');
 const modalLoginBtnRegister = document.querySelector('#modalLoginBtnRegister');
 
@@ -24,7 +24,7 @@ export function initLoginScript() {
 async function loginScript() {
     modalLoginInputError_email.innerText = "";
     modalLoginInputError_password.innerText = "";
-    modalLoginInputError_credentials.innerText = "";
+    modalLoginFormError.innerText = "";
 
     const user = {};
     user.email = modalLoginInputEmail.value;
@@ -39,7 +39,7 @@ function validateLoginResult(loginResult) {
     if (loginResult.is_ok == false) {
         switch (loginResult.message) {
             case API_ERROR_MSG_VALIDATION_FAILED: showMissFields(loginResult.error); break;
-            case API_ERROR_MSG_WRONG_CREDENTIALS: modalLoginInputError_credentials.innerText = loginResult.message; break;
+            case API_ERROR_MSG_WRONG_CREDENTIALS: modalLoginFormError.innerText = loginResult.message; break;
         }
     }
     else {

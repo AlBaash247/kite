@@ -9,7 +9,7 @@ const modalRegisterInputPassword = document.querySelector('#modalRegisterInputPa
 const modalRegisterInputError_name = document.querySelector('#modalRegisterInputError_name');
 const modalRegisterInputError_email = document.querySelector('#modalRegisterInputError_email');
 const modalRegisterInputError_password = document.querySelector('#modalRegisterInputError_password');
-const modalRegisterInputError_credentials = document.querySelector('#modalRegisterInputError_credentials');
+const modalRegisterFormError = document.querySelector('#modalRegisterFormError');
 const modalRegisterBtnLogin = document.querySelector('#modalRegisterBtnLogin');
 const modalRegisterBtnRegister = document.querySelector('#modalRegisterBtnRegister');
 
@@ -27,7 +27,7 @@ async function registerScript() {
     modalRegisterInputError_name.innerText = "";
     modalRegisterInputError_email.innerText = "";
     modalRegisterInputError_password.innerText = "";
-    modalRegisterInputError_credentials.innerText = "";
+    modalRegisterFormError.innerText = "";
 
     const user = {};
     user.name = modalRegisterInputName.value;
@@ -44,7 +44,7 @@ function validateRegisterResult(registerResult) {
     if (registerResult.is_ok == false) {
         switch (registerResult.message) {
             case API_ERROR_MSG_VALIDATION_FAILED: showMissFields(registerResult.error); break;
-            case API_ERROR_MSG_WRONG_CREDENTIALS: modalRegisterInputError_credentials.innerText = registerResult.message; break;
+            case API_ERROR_MSG_WRONG_CREDENTIALS: modalRegisterFormError.innerText = registerResult.message; break;
         }
     }
     else {
