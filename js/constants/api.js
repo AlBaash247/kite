@@ -6,6 +6,7 @@ const selectedEnv = localEnv;
 
 export const API_URL_LOGIN = `${selectedEnv}/api/kite/login`;
 export const API_URL_REGISTER = `${selectedEnv}/api/kite/register`;
+export const API_URL_STORE_PROJECT = `${selectedEnv}/api/kite/projects/store`;
 export const API_URL_GET_PROJECTS = `${selectedEnv}/api/kite/projects`;
 export const API_URL_GET_TASKS = `${selectedEnv}/api/kite/tasks`;
 export const API_URL_STORE_TASK = `${selectedEnv}/api/kite/tasks/store`;
@@ -35,6 +36,8 @@ export const API_KEY_DUE_DATE = "due_date";
 export const API_KEY_CONTENT = "content";
 
 export const API_KEY_COMMENT = "comment";
+
+export const API_KEY_PROJECT_NAME = "project_name";
 
 export const API_ERROR_MSG_VALIDATION_FAILED = "Validation failed";
 export const API_ERROR_MSG_WRONG_CREDENTIALS = "wrong credentials";

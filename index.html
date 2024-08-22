@@ -58,8 +58,14 @@
 
                         <div id="dropdownSettingsAuth">
                             <!-- TODO implement this button -->
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-plus"></i>New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <button id="settingsBtnProfile" class="dropdown-item" href="#"><i
+                                        class="bi bi-person"></i> Profile</button>
+                            </li>
+                            <li>
+                                <button id="settingsNewProject" class="dropdown-item" href="#"><i
+                                        class="bi bi-plus"></i>New project...</button>
+                            </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -98,7 +104,11 @@
             </div>
 
             <div id="mainContainer" class="container-fluid flex-grow-1 mt-2">
-                <div class="d-flex flex-row-reverse my-2">
+
+
+                <div class="d-flex justify-content-end my-2 flex-fill">
+                    <button class="btn btn-primary me-4"> <i class="bi bi-person-raised-hand"></i> Contributors</button>
+
                     <a class="btn btn-success justify-self-right" href="./pages/new-task.html">
                         <span class="bi bi-plus">New Task</span>
                     </a>
@@ -224,11 +234,43 @@
         </div>
     </div>
 
+    <!-- project Modal -->
+    <div class="modal fade" id="projectModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a New Project :></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-floating mb-3">
+                        <input id="modalProjectInputProjectName" type="text" class="form-control"
+                            placeholder="project name" value="">
+                        <label for="modalLoginInputEmail">Project Name</label>
+                        <p id="modalProjectInputError_project_name" class="text-danger"></p>
+                    </div>
+
+                    <p id="modalProjectFormError" class="text-danger fs-5"></p>
+                </div>
+
+                <div class="container modal-footer">
+                    <div class="d-flex w-100">
+                        <button type="button" class="btn btn-secondary mx-1" data-bs-dismiss="modal">Close</button>
+                        <button id="modalProjectBtnSave" type="button" class="btn btn-primary mx-1">Save</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Project List Item Template -->
     <template id="projectListItemTemplate">
         <li id="listItem" class="nav-item">
             <a id="linkElement" class="nav-link py-3 border-bottom">
-                <!-- <i class="fa fa-home"></i> -->
+                <!-- <i class="bi bi-person-raised-hand"></i> -->
                 <small id="projectTitle">Home</small>
             </a>
         </li>

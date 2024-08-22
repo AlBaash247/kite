@@ -1,9 +1,10 @@
 import { getUser } from '../constants/my-store.js';
+import { API_KEY_AUTHOR_ID } from '../constants/api.js';
 import { isAuthOK, signOut } from "../handlers/auth.js";
 import { fetchProjects } from "../handlers/kite-projects.js";
 import { initLoginScript } from './login.js';
 import { initRegisterScript } from './register.js';
-import { API_KEY_AUTHOR_ID } from '../constants/api.js';
+import { displayProjectModal, initProjectScript } from './new-project.js';
 
 
 // Create a new instance of the modal
@@ -15,15 +16,19 @@ const mainContainer = document.querySelector('#mainContainer');
 const dropdownSettings = document.querySelector('#dropdownSettings');
 const dropdownSettingsAuth = document.querySelector('#dropdownSettingsAuth');
 
+const settingsBtnProfile = document.querySelector('#settingsBtnProfile');
+const settingsNewProject = document.querySelector('#settingsNewProject');
 const settingsBtnSignOut = document.querySelector('#settingsBtnSignOut');
 
 
 init();
 
 function init() {
+    settingsNewProject.onclick = function () { displayProjectModal(); }
     settingsBtnSignOut.onclick = function () { logoutScript(); }
     initLoginScript();
     initRegisterScript();
+    initProjectScript();
     toggleActiveContent();
 }
 
