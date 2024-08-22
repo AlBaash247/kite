@@ -16,7 +16,6 @@ const mainContainer = document.querySelector('#mainContainer');
 const dropdownSettings = document.querySelector('#dropdownSettings');
 const dropdownSettingsAuth = document.querySelector('#dropdownSettingsAuth');
 
-const settingsBtnProfile = document.querySelector('#settingsBtnProfile');
 const settingsNewProject = document.querySelector('#settingsNewProject');
 const settingsBtnSignOut = document.querySelector('#settingsBtnSignOut');
 

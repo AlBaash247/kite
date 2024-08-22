@@ -7,7 +7,7 @@ import { fetchStoreProject } from "../handlers/kite-projects.js";
 
 
 const projectModal = new bootstrap.Modal(document.getElementById('projectModal'));
-const modalProjectBtnSave = document.querySelector('#modalProjectBtnSave');
+const modalProjectBtnCreate = document.querySelector('#modalProjectBtnCreate');
 
 const modalProjectInputProjectName = document.querySelector('#modalProjectInputProjectName');
 const modalProjectInputError_project_name = document.querySelector('#modalProjectInputError_project_name');
@@ -15,7 +15,7 @@ const modalProjectFormError = document.querySelector('#modalProjectFormError');
 
 
 export function initProjectScript() {
-    modalProjectBtnSave.onclick = function () { projectScript(); }
+    modalProjectBtnCreate.onclick = function () { projectScript(); }
 }
 
 async function projectScript() {
