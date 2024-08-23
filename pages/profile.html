@@ -10,7 +10,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/task.css">
 </head>
 
 <body>
@@ -28,65 +27,74 @@
         </div>
     </div>
 
-    <div class="container-fluid p-0">
+    <!-- My Contributions -->
+    <div class="container-fluid p-0 my-3">
 
         <div class="d-flex justify-content-center mt-5">
-
-            <!-- TODO:: Remove code related edit task -->
-            <!-- TODO:: display list of projects and allow Update & Remove contributors -->
             <div class="container card shadow p-4">
 
-                <div class="mb-3">
-                    <label for="inputTitle" class="form-label">Task Title</label>
-                    <input id="inputTitle" type="text" class="form-control">
-                    <p id="inputError_title" class="text-danger"></p>
+                <div class="d-flex align-items-baseline">
+                    <h1 class="me-3">
+                        <i class="bi bi-person-arms-up"></i>
+                        My Contributions
+                    </h1>
+                    <p>(project you are part of)</p>
                 </div>
 
-                <div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
 
-                    <div class="container form-group mb-3">
-                        <label for="inputStatus" class="form-label">Task Status</label>
-                        <select id="inputStatus" class="form-control">
-                            <option value="todo">To Do</option>
-                            <option value="in_progress">In Progress</option>
-                            <option value="done">Done</option>
-                        </select>
-                        <p id="inputError_status" class="text-danger"></p>
+                <div class="container card shadow my-3 p-4">
+
+                    <div class="accordion accordion-flush">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button id="myContributionsAccordionBtnProjects"
+                                    class="accordion-button display-6 fs-5 collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#myContributionsCollapsePanel"
+                                    aria-expanded="false" aria-controls="myContributionsCollapsePanel">
+                                    <i class="bi bi-file-ruled-fill me-1"></i>Projects
+                                </button>
+                            </h2>
+                            <div id="myContributionsCollapsePanel" class="accordion-collapse collapse show">
+                                <div class="accordion-body">
+
+
+                                    <div class="d-flex justify-content-around flex-wrap">
+
+
+                                    </div>
+
+                                    <table class="table table-lg table-hover shadow">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Author Name</th>
+                                                <th>Project Name</th>
+                                                <th>Operations</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="myContributionsRowContainer" class="table-group-divider">
+                                            <tr>
+                                                <td id="myContributionsProjectIndex">1</td>
+                                                <td id="myContributionsProjectAuthor">John Doe</td>
+                                                <td id="myContributionsProjectName">xProject</td>
+                                                <td>
+                                                    <button id="myContributionsProjectBtnExitProject"
+                                                        title="Exit Project" class="btn btn-outline-danger">
+                                                        <i class="bi bi-x-lg"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="container form-group mb-3">
-                        <label for="inputImportance" class="form-label">Task Importance</label>
-                        <select id="inputImportance" class="form-control">
-                            <option value="low_priority">Low Priority</option>
-                            <option value="normal">Normal</option>
-                            <option value="important">Important</option>
-                            <option value="urgent">Urgent</option>
-                        </select>
-                        <p id="inputError_importance" class="text-danger"></p>
-                    </div>
-
-                    <div class="container form-group mb-3">
-                        <label for="inputDueDate" class="form-label">Due Date</label>
-                        <input id="inputDueDate" type="date" class="form-control">
-                        <p id="inputError_due_date" class="text-danger"></p>
-                    </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="inputContent" class="form-label">Task Content</label>
-                    <textarea id="inputContent" class="form-control"></textarea>
-                    <p id="inputError_content" class="text-danger"></p>
-                </div>
-
-                <div class="d-flex justify-content-end mt-3">
-                    <p id="formError" class="text-danger"></p>
-                </div>
-
-                <div class="d-flex justify-content-end mt-3">
-                    <a class="btn btn-lg btn-secondary" href="../index.html">Cancel</a>
-                    <button id="btnSaveExit" class="btn btn-lg btn-success mx-3">Save & Exit</button>
-                    <button id="btnSave" class="btn btn-lg btn-primary">Save</button>
-                </div>
 
             </div>
 
@@ -95,7 +103,94 @@
 
     </div>
 
-    <script type="module" src="../js/scripts/edit-task.js"></script>
+    <!-- My Contributors -->
+    <div class="container-fluid p-0 my-3">
+
+        <div class="d-flex justify-content-center mt-5">
+            <div class="container card shadow p-4">
+                <div class="d-flex align-items-baseline">
+                    <h1 class="me-3">
+                        <i class="bi bi-person-raised-hand me-1"></i>
+                        My Contributors
+                    </h1>
+                    <p>(your projects)</p>
+                </div>
+
+                <div id="myContributorsProjectCard" class="container card shadow my-3 p-4">
+                    <!-- myContributors template lives here -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- myContributors template  -->
+    <template id="myContributorsTemplate">
+        <div class="accordion accordion-flush">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button id="myContributorsAccordionBtnProjectTitle" class="accordion-button fs-5 collapsed"
+                        type="button" data-bs-toggle="collapse"
+                        data-bs-target="#myContributorsCollapsePanelContributors" aria-expanded="false"
+                        aria-controls="myContributorsCollapsePanelContributors">
+                        <i class="bi bi-file-ruled-fill me-1"></i>
+                        project 1
+                    </button>
+                </h2>
+                <div id="myContributorsCollapsePanelContributors" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+
+                        <div class="d-flex justify-content-end">
+                            <button id="myContributorsBtnAddContributor" type="button" class="btn btn-outline-success">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+                        </div>
+
+                        <div class="d-flex justify-content-around flex-wrap">
+
+                            <!-- <button class="btn btn-primary m-2"> john doe johny doe
+                                <i class="rounded text-danger bg-white ms-2 p-1 bi bi-person-x-fill"></i>
+                            </button> -->
+
+                            <table class="table table-lg table-hover mt-3 shadow">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Contributor Name</th>
+                                        <th>Contributor Email</th>
+                                        <th>Operations</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="myContributorsRowContainer" class="table-group-divider">
+                                    <tr>
+                                        <td id="myContributorsIndex">1</td>
+                                        <td id="myContributorsName">John Doe</td>
+                                        <td id="myContributionsEmail">johnDoe@mail.com</td>
+                                        <td>
+                                            <button id="myContributorsBtnRemoveContributor" title="Remove Contributor"
+                                                class="btn btn-outline-danger">
+                                                <i class="bi bi-person-x-fill"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+
+
+
+    <script type="module" src="../js/scripts/my-contributors.js"></script>
+    <script type="module" src="../js/scripts/my-contributions.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
