@@ -1,4 +1,4 @@
-import { mainFetch } from '../handlers/main-fetch.js';
+import { mainFetch } from '../fetching/main-fetch.js';
 import { API_URL_GET_PROJECTS, API_URL_STORE_PROJECT } from "../constants/api.js";
 import { adapter } from "../adapters/projects-adapter.js";
 

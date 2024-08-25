@@ -3,7 +3,7 @@ import {
     API_ERROR_MSG_VALIDATION_FAILED, API_ERROR_MSG_WRONG_CREDENTIALS,
     API_KEY_AUTHOR_ID, API_KEY_TASK_ID, API_KEY_COMMENT,
 } from "../constants/api.js";
-import { fetchComments, fetchStoreComment, fetchUpdateComment } from "../handlers/kite-comments.js";
+import { fetchComments, fetchStoreComment, fetchUpdateComment } from "../fetching/kite-comments.js";
 
 
 let shouldExit = false;

@@ -4,7 +4,7 @@ import {
     API_KEY_STATUS, API_KEY_IMPORTANCE, API_KEY_DUE_DATE,
     API_KEY_CONTENT, API_ERROR_MSG_VALIDATION_FAILED, API_ERROR_MSG_WRONG_CREDENTIALS
 } from "../constants/api.js";
-import { fetchAddTask } from "../handlers/kite-tasks.js";
+import { fetchAddTask } from "../fetching/kite-tasks.js";
 
 let shouldExit = false;
 

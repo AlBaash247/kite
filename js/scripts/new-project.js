@@ -3,7 +3,7 @@ import {
     API_KEY_AUTHOR_ID, API_KEY_PROJECT_NAME,
     API_ERROR_MSG_VALIDATION_FAILED, API_ERROR_MSG_WRONG_CREDENTIALS
 } from "../constants/api.js";
-import { fetchStoreProject } from "../handlers/kite-projects.js";
+import { fetchStoreProject } from "../fetching/kite-projects.js";
 
 
 const projectModal = new bootstrap.Modal(document.getElementById('projectModal'));

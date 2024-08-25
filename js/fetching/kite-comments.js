@@ -1,4 +1,4 @@
-import { mainFetch } from '../handlers/main-fetch.js';
+import { mainFetch } from '../fetching/main-fetch.js';
 import { adapter } from "../adapters/comments-adapter.js";
 import {
     API_URL_GET_COMMENTS, API_URL_STORE_COMMENT

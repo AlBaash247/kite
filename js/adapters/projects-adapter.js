@@ -1,6 +1,6 @@
 
 import { API_KEY_PROJECT_ID } from "../constants/api.js";
-import { fetchTasks } from '../handlers/kite-tasks.js';
+import { fetchTasks } from '../fetching/kite-tasks.js';
 import { storeSelectedProjectId, getSelectedProjectId } from "../constants/my-store.js";
 
 const projectListItemTemplate = document.querySelector('#projectListItemTemplate');

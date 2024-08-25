@@ -3,7 +3,7 @@ import {
     API_KEY_TITLE, API_KEY_STATUS, API_KEY_IMPORTANCE, API_KEY_DUE_DATE,
     API_KEY_CONTENT, API_ERROR_MSG_VALIDATION_FAILED, API_ERROR_MSG_WRONG_CREDENTIALS
 } from "../constants/api.js";
-import { fetchUpdateTask } from "../handlers/kite-tasks.js";
+import { fetchUpdateTask } from "../fetching/kite-tasks.js";
 
 let shouldExit = false;
 

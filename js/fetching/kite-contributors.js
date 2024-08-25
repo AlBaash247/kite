@@ -1,4 +1,4 @@
-import { mainFetch } from '../handlers/main-fetch.js';
+import { mainFetch } from '../fetching/main-fetch.js';
 import { adapterContributors } from "../adapters/my-contributors-adapter.js";
 import {
     API_URL_GET_CONTRIBUTORS, API_URL_GET_CONTRIBUTIONS, API_URL_STORE_CONTRIBUTOR,
