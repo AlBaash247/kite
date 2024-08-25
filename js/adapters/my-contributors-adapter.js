@@ -16,6 +16,16 @@ function createListItem(project, index) {
     const myContributorsAccordionBtnProjectTitle = clone.querySelector('#myContributorsAccordionBtnProjectTitle');
     const myContributorsCollapsePanelContributors = clone.querySelector('#myContributorsCollapsePanelContributors');
     const myContributorsBtnAddContributor = clone.querySelector('#myContributorsBtnAddContributor');
+    
+    const myContributorsIndex = clone.querySelector('#myContributorsIndex');
+    const myContributorsName = clone.querySelector('#myContributorsName');
+    const myContributionsEmail = clone.querySelector('#myContributionsEmail');
+    const myContributorsBtnRemoveContributor = clone.querySelector('#myContributorsBtnRemoveContributor');
+
+    myContributorsAccordionBtnProjectTitle.innerText =  project.project_name;
+    myContributorsIndex.innerText = (index + 1);
+    myContributorsName.innerText = project.contributor_name;
+    myContributionsEmail.innerText = project.contributor_email;
 
 
     myContributorsBtnAddContributor.onclick = function () {
