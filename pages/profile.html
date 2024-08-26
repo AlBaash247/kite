@@ -54,7 +54,7 @@
                                     <i class="bi bi-file-ruled-fill me-1"></i>Projects
                                 </button>
                             </h2>
-                            <div id="myContributionsCollapsePanel" class="accordion-collapse collapse show">
+                            <div id="myContributionsCollapsePanel" class="accordion-collapse collapse">
                                 <div class="accordion-body">
 
 
@@ -106,18 +106,95 @@
                     <p>(your projects)</p>
                 </div>
 
-                <div id="myContributorsProjectCard" class="container card shadow my-3 p-4">
-                    <!-- myContributors template lives here -->
+                <div class="container card shadow my-3 p-4">
+
+                    <div class="accordion accordion-flush">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button id="myContributorsAccordionBtnProjectTitle"
+                                    class="accordion-button fs-5 collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#myContributorsCollapsePanelContributors" aria-expanded="false"
+                                    aria-controls="myContributorsCollapsePanelContributors">
+                                    <i class="bi bi-file-ruled-fill me-1"></i>
+                                    Projects
+                                </button>
+                            </h2>
+                            <div id="myContributorsCollapsePanelContributors" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+
+                                    <div class="d-flex justify-content-end">
+                                        <button id="myContributorsBtnAddContributor" type="button"
+                                            class="btn btn-outline-success">
+                                            <i class="bi bi-plus-lg"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="d-flex justify-content-around flex-wrap">
+
+                                        <table class="table table-lg table-hover mt-3 shadow">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Project Name</th>
+                                                    <th>Contributor Name</th>
+                                                    <th>Contributor Email</th>
+                                                    <th>Operations</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="myContributorsRowContainer" class="table-group-divider">
+                                                <!-- myContributors template lives here  -->
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
 
     </div>
 
+    <!-- Contributor Modal -->
+    <div class="modal fade" id="modalContributor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a New Project :></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-floating mb-3">
+                        <input id="modalContributorInputProjectName" type="text" class="form-control"
+                            placeholder="project name" value="">
+                        <label for="modalLoginInputEmail">Project Name</label>
+                        <p id="modalContributorInputError_project_name" class="text-danger"></p>
+                    </div>
+
+                    <p id="modalContributorFormError" class="text-danger fs-5"></p>
+                </div>
+
+                <div class="container modal-footer">
+                    <div class="d-flex w-100">
+                        <button type="button" class="btn btn-secondary mx-1" data-bs-dismiss="modal">Close</button>
+                        <button id="modalContributorBtnCreate" type="button"
+                            class="btn btn-primary mx-1">Create</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-    <!-- myContributortions Template  -->
-    <template id="myContributortionsTemplate">
+    <!-- myContributions Template  -->
+    <template id="myContributionsTemplate">
         <tr>
             <td id="myContributionsProjectIndex">1</td>
             <td id="myContributionsProjectAuthor">John Doe</td>
@@ -130,73 +207,23 @@
         </tr>
     </template>
 
-
     <!-- myContributors template  -->
     <template id="myContributorsTemplate">
-        <div class="accordion accordion-flush">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button id="myContributorsAccordionBtnProjectTitle" class="accordion-button fs-5 collapsed"
-                        type="button" data-bs-toggle="collapse"
-                        data-bs-target="#myContributorsCollapsePanelContributors" aria-expanded="false"
-                        aria-controls="myContributorsCollapsePanelContributors">
-                        <i class="bi bi-file-ruled-fill me-1"></i>
-                        project 1
-                    </button>
-                </h2>
-                <div id="myContributorsCollapsePanelContributors" class="accordion-collapse collapse">
-                    <div class="accordion-body">
-
-                        <div class="d-flex justify-content-end">
-                            <button id="myContributorsBtnAddContributor" type="button" class="btn btn-outline-success">
-                                <i class="bi bi-plus-lg"></i>
-                            </button>
-                        </div>
-
-                        <div class="d-flex justify-content-around flex-wrap">
-
-                            <!-- <button class="btn btn-primary m-2"> john doe johny doe
-                                <i class="rounded text-danger bg-white ms-2 p-1 bi bi-person-x-fill"></i>
-                            </button> -->
-
-                            <table class="table table-lg table-hover mt-3 shadow">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Contributor Name</th>
-                                        <th>Contributor Email</th>
-                                        <th>Operations</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="myContributorsRowContainer" class="table-group-divider">
-                                    <tr>
-                                        <td id="myContributorsIndex">1</td>
-                                        <td id="myContributorsName">John Doe</td>
-                                        <td id="myContributionsEmail">johnDoe@mail.com</td>
-                                        <td>
-                                            <button id="myContributorsBtnRemoveContributor" title="Remove Contributor"
-                                                class="btn btn-outline-danger">
-                                                <i class="bi bi-person-x-fill"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <tr>
+            <td id="myContributorsIndex">1</td>
+            <td id="myContributorsProjectName">1</td>
+            <td id="myContributorsName">John Doe</td>
+            <td id="myContributionsEmail">johnDoe@mail.com</td>
+            <td>
+                <button id="myContributorsBtnRemoveContributor" title="Remove Contributor"
+                    class="btn btn-outline-danger">
+                    <i class="bi bi-person-x-fill"></i>
+                </button>
+            </td>
+        </tr>
     </template>
 
-
-
-
-    <script type="module" src="../js/scripts/my-contributors.js"></script>
-    <script type="module" src="../js/scripts/my-contributions.js"></script>
+    <script type="module" src="../js/scripts/profile.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

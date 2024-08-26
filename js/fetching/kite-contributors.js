@@ -11,8 +11,6 @@ import {
 
 export async function fetchContributors(jsonRequestBody) {
     const responseObject = await mainFetch(API_URL_GET_CONTRIBUTORS, jsonRequestBody);
-    console.log(responseObject);
-    
     adapterContributors(responseObject.data.contributors);
 }
 
