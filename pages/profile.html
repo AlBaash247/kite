@@ -178,6 +178,21 @@
                         <p id="modalContributorInputError_project_name" class="text-danger"></p>
                     </div>
 
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select</button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <input type="text" class="form-control" id="searchInput" placeholder="Search options...">
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="selectItem(this)">Option 1</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectItem(this)">Option 2</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectItem(this)">Option 3</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectItem(this)">Option 4</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectItem(this)">Option 5</a></li>
+                        </ul>
+                    </div>
+                    <div id="selectedItem" class="mt-3"></div>
+
                     <p id="modalContributorFormError" class="text-danger fs-5"></p>
                 </div>
 
@@ -231,6 +246,7 @@
         crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 </body>
 
