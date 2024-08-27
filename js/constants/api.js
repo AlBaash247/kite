@@ -14,6 +14,7 @@ export const API_URL_GET_CONTRIBUTIONS = `${selectedEnv}/api/kite/projects/contr
 export const API_URL_STORE_CONTRIBUTOR = `${selectedEnv}/api/kite/projects/store_contributor`;
 export const API_URL_REMOVE_CONTRIBUTOR = `${selectedEnv}/api/kite/projects/remove_contributor`;
 export const API_URL_EXIT_PROJECT = `${selectedEnv}/api/kite/projects/exit_project`;
+export const API_URL_USERS_LIST = `${selectedEnv}/api/kite/projects/users_list`;
 
 export const API_URL_GET_TASKS = `${selectedEnv}/api/kite/tasks`;
 export const API_URL_STORE_TASK = `${selectedEnv}/api/kite/tasks/store`;
@@ -24,6 +25,7 @@ export const API_URL_STORE_COMMENT = `${selectedEnv}/api/kite/comments/store`;
 export const API_URL_UPDATE_COMMENT = `${selectedEnv}/api/kite/comments/update`;
 
 
+export const API_KEY_USER_ID = "user_id";
 export const API_KEY_AUTHOR_ID = "author_id";
 export const API_KEY_PROJECT_ID = "project_id";
 export const API_KEY_TASK_ID = "task_id";
