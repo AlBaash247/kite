@@ -9,7 +9,9 @@ export function adapterUsersList(users) {
     users.forEach((user, index) => {
         createListItem(user, index);
     });
+
     enableContributorSearch();
+    createEmptyRow();
 }
 
 function createListItem(user, index) {
@@ -20,6 +22,7 @@ function createListItem(user, index) {
     contributorItemLink.innerText = user.name + " | " + user.email;
 
     contributorItemLink.onclick = function () {
+        removeEmptyRow();
         selectItem(this, user);
     }
 
@@ -59,6 +62,11 @@ function selectItem(element, user) {
         // move element back to modalContributorSelectContributorContainer & make it visible
         element.classList.remove('d-none');
         modalContributorSelectContributorContainer.append(element);
+
+        if (modalContributorSelectedItemsContainer.childElementCount == 0) {
+            createEmptyRow();
+        }
+
     }
 
     //move element to modalContributorSelectedItemsContainer and hide it!
@@ -67,4 +75,16 @@ function selectItem(element, user) {
 
     //add clone to modalContributorSelectedItemsContainer
     modalContributorSelectedItemsContainer.appendChild(clone);
+}
+
+function createEmptyRow() {
+    const row = `<tr id="emptyRow"><td colspan="12" class="text-danger">You didn't select any contributor</td></tr>`;
+    modalContributorSelectedItemsContainer.innerHTML = row;
+}
+
+function removeEmptyRow() {
+    const row = document.getElementById('emptyRow');
+    if (row) {
+        modalContributorSelectedItemsContainer.removeChild(row);
+    }
 }
