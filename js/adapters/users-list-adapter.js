@@ -4,14 +4,20 @@ const modalContributorSelectContributorContainer = document.querySelector('#moda
 const modalContributorSelectContributor = document.getElementById('searchInput');
 const modalContributorRowTemplate = document.getElementById('modalContributorRowTemplate');
 const modalContributorSelectedItemsContainer = document.getElementById('modalContributorSelectedItemsContainer');
+const modalContributorBtnAddContributor = document.getElementById('modalContributorBtnAddContributor');
 
 export function adapterUsersList(users) {
     users.forEach((user, index) => {
         createListItem(user, index);
     });
 
+    init();
+}
+
+function init() {
     enableContributorSearch();
     createEmptyRow();
+    modalContributorBtnAddContributor.onclick = function () { addContributors(); }
 }
 
 function createListItem(user, index) {
@@ -52,6 +58,7 @@ function selectItem(element, user) {
     const modalContributorEmail = clone.getElementById('modalContributorEmail');
     const modalContributorRemoveContributor = clone.getElementById('modalContributorRemoveContributor');
 
+    modalContributorRow.dataset.id = user.id;
     modalContributorName.innerText = user.name;
     modalContributorEmail.innerText = user.email;
 
@@ -86,5 +93,18 @@ function removeEmptyRow() {
     const row = document.getElementById('emptyRow');
     if (row) {
         modalContributorSelectedItemsContainer.removeChild(row);
+    }
+}
+
+function addContributors() {
+    const emptyRow = document.getElementById('emptyRow');
+    if (emptyRow) {
+        alert('Please select a contributor');
+    } else {
+
+        const selectedContributorsIds = [...document.querySelectorAll('[name="modalContributorRow"]')].map(element => element.dataset.id);
+        console.log(selectedContributorsIds);
+
+
     }
 }
