@@ -37,8 +37,6 @@ export async function fetchExitProject(jsonRequestBody) {
 
 export async function fetchUsersList(jsonRequestBody) {
     const responseObject = await mainFetch(API_URL_USERS_LIST, jsonRequestBody);
-    console.log(responseObject);
-    
     adapterUsersList(responseObject.data.users);
 }
 
