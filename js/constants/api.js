@@ -49,6 +49,7 @@ export const API_KEY_COMMENT = "comment";
 
 export const API_KEY_PROJECT_NAME = "project_name";
 export const API_KEY_CONTRIBUTOR_ID = "contributor_id";
+export const API_KEY_CONTRIBUTORS = "contributors";
 
 export const API_ERROR_MSG_VALIDATION_FAILED = "Validation failed";
 export const API_ERROR_MSG_WRONG_CREDENTIALS = "wrong credentials";

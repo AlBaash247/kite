@@ -1,5 +1,10 @@
+import { getUser } from "../constants/my-store.js";
+import { API_KEY_AUTHOR_ID, API_KEY_PROJECT_ID, API_KEY_CONTRIBUTORS } from "../constants/api.js";
+import { fetchProjects, fetchStoreContributors } from "../fetching/kite-contributors.js";
 const modalContributorSelectContributorListItemTemplate = document.querySelector('#modalContributorSelectContributorListItemTemplate');
 const modalContributorSelectContributorContainer = document.querySelector('#modalContributorSelectContributorContainer');
+
+const modalContributorInputProjectName = document.getElementById('modalContributorInputProjectName');
 
 const modalContributorSelectContributor = document.getElementById('searchInput');
 const modalContributorRowTemplate = document.getElementById('modalContributorRowTemplate');
@@ -15,6 +20,10 @@ export function adapterUsersList(users) {
 }
 
 function init() {
+    var jsonRequestBody = {};
+    jsonRequestBody[API_KEY_AUTHOR_ID] = getUser().id
+    fetchProjects(jsonRequestBody);
+
     enableContributorSearch();
     createEmptyRow();
     modalContributorBtnAddContributor.onclick = function () { addContributors(); }
@@ -101,10 +110,29 @@ function addContributors() {
     if (emptyRow) {
         alert('Please select a contributor');
     } else {
-
         const selectedContributorsIds = [...document.querySelectorAll('[name="modalContributorRow"]')].map(element => element.dataset.id);
-        console.log(selectedContributorsIds);
+
+        var jsonRequestBody = {};
+        jsonRequestBody[API_KEY_AUTHOR_ID] = getUser().id;
+        jsonRequestBody[API_KEY_PROJECT_ID] = modalContributorInputProjectName.value;
+        jsonRequestBody[API_KEY_CONTRIBUTORS] = selectedContributorsIds;
+
+        console.log(jsonRequestBody);
 
 
+        fetchStoreContributors(jsonRequestBody);
     }
+}
+
+export function adapterProjectsList(projects) {
+    projects.forEach(project => {
+        createOption(project);
+    });
+}
+
+function createOption(project) {
+    var option = document.createElement('option');
+    option.value = project.id;
+    option.text = project.project_name;
+    modalContributorInputProjectName.appendChild(option);
 }
