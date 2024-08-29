@@ -159,7 +159,6 @@
 
     </div>
 
-    <!-- TODO:: add contributor to a project, 2 inputs, select select project + contributor   -->
     <!-- Contributor Modal -->
     <div class="modal fade" id="modalContributor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -172,14 +171,15 @@
                 <div class="modal-body">
 
                     <div class="form-floating mb-3">
-                        <input id="modalContributorInputProjectName" type="text" class="form-control"
-                            placeholder="project name" value="">
-                        <label for="modalLoginInputEmail">Project Name</label>
+                        <select id="modalContributorInputProjectName" class="form-select form-select">
+                            <!-- project options lives here -->
+                        </select>
+                        <label for="modalLoginInputEmail">Select Project</label>
                         <p id="modalContributorInputError_project_name" class="text-danger"></p>
                     </div>
 
                     <div class="input-group mb-3">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                        <button class="btn btn-outline-secondary dropdown-toggle w-100" type="button"
                             data-bs-toggle="dropdown" aria-expanded="false">Select Contributor</button>
                         <ul class="dropdown-menu">
                             <li>
@@ -257,6 +257,7 @@
     <template id="modalContributorSelectContributorListItemTemplate">
         <li><a id="contributorItemLink" class="dropdown-item" href="#">Option 1</a></li>
     </template>
+
 
     <!-- modalContributor rows template lives here  -->
     <template id="modalContributorRowTemplate">
