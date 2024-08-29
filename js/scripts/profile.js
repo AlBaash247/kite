@@ -24,7 +24,7 @@ function init() {
 
     const user_id = {};
     user_id[API_KEY_USER_ID] = getUser().id;
-    fetchUsersList(contributor_id);
+    fetchUsersList(user_id);
 
 
 }
