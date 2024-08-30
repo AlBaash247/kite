@@ -1,4 +1,4 @@
-import { getUser } from '../constants/my-store.js';
+import { getSelectedProjectId, getUser } from '../constants/my-store.js';
 import { API_KEY_AUTHOR_ID } from '../constants/api.js';
 import { isAuthOK, signOut } from "../fetching/auth.js";
 import { fetchProjects } from "../fetching/kite-projects.js";
@@ -16,6 +16,10 @@ const mainContainer = document.querySelector('#mainContainer');
 const dropdownSettings = document.querySelector('#dropdownSettings');
 const dropdownSettingsAuth = document.querySelector('#dropdownSettingsAuth');
 
+const btnContributors = document.querySelector('#btnContributors');
+
+
+
 const settingsNewProject = document.querySelector('#settingsNewProject');
 const settingsBtnSignOut = document.querySelector('#settingsBtnSignOut');
 
@@ -25,6 +29,11 @@ init();
 function init() {
     settingsNewProject.onclick = function () { displayProjectModal(); }
     settingsBtnSignOut.onclick = function () { logoutScript(); }
+
+    btnContributors.onclick = function () {
+        window.location.href = './pages/profile.html?project_id=' + getSelectedProjectId();
+    }
+
     initLoginScript();
     initRegisterScript();
     initProjectScript();

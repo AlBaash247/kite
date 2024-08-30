@@ -8,11 +8,11 @@ export const modalContributor = new bootstrap.Modal(document.getElementById('mod
 const myContributorsBtnAddContributor = document.querySelector('#myContributorsBtnAddContributor');
 
 
+
 init();
 
 function init() {
     myContributorsBtnAddContributor.onclick = function () { modalContributor.show(); }
-
 
     const author_id = {};
     author_id[API_KEY_AUTHOR_ID] = getUser().id;
@@ -26,8 +26,15 @@ function init() {
     user_id[API_KEY_USER_ID] = getUser().id;
     fetchUsersList(user_id);
 
-
+    displayModalContributorWithSelectedProject();
 }
 
 
 
+function displayModalContributorWithSelectedProject() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (urlParams.get('project_id') != null) {
+        modalContributor.show();
+    }
+}

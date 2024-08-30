@@ -11,6 +11,9 @@ const modalContributorRowTemplate = document.getElementById('modalContributorRow
 const modalContributorSelectedItemsContainer = document.getElementById('modalContributorSelectedItemsContainer');
 const modalContributorBtnAddContributor = document.getElementById('modalContributorBtnAddContributor');
 
+const selectedProjectId = getSelectedProjectId();
+
+
 export function adapterUsersList(users) {
     users.forEach((user, index) => {
         createListItem(user, index);
@@ -117,15 +120,12 @@ function addContributors() {
         jsonRequestBody[API_KEY_PROJECT_ID] = modalContributorInputProjectName.value;
         jsonRequestBody[API_KEY_CONTRIBUTORS] = selectedContributorsIds;
 
-        console.log(jsonRequestBody);
-
-
         fetchStoreContributors(jsonRequestBody);
     }
 }
 
 export function adapterProjectsList(projects) {
-    projects.forEach(project => {
+    projects.forEach((project) => {
         createOption(project);
     });
 }
@@ -134,5 +134,18 @@ function createOption(project) {
     var option = document.createElement('option');
     option.value = project.id;
     option.text = project.project_name;
+    if (project.id == selectedProjectId) {
+        option.selected = true;
+    }
     modalContributorInputProjectName.appendChild(option);
+}
+
+function getSelectedProjectId() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (urlParams.get('project_id') != null) {
+        return urlParams.get('project_id');
+    } else {
+        return 0;
+    }
 }
