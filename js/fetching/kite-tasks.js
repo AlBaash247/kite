@@ -6,7 +6,7 @@ import {
 import { adapter } from "../adapters/tasks-adapter.js";
 
 export async function fetchTasks(jsonRequestBody) {
-    const responseObject = await mainFetch(API_URL_GET_TASKS, jsonRequestBody);
+    const responseObject = await mainFetch(API_URL_GET_TASKS, jsonRequestBody);    
     adapter(responseObject.data.tasks);
 
 }

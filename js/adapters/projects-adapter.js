@@ -1,5 +1,6 @@
 
-import { API_KEY_PROJECT_ID } from "../constants/api.js";
+import { getUser } from "../constants/my-store.js";
+import { API_KEY_AUTHOR_ID, API_KEY_PROJECT_ID } from "../constants/api.js";
 import { fetchTasks } from '../fetching/kite-tasks.js';
 import { storeSelectedProjectId, getSelectedProjectId } from "../constants/my-store.js";
 
@@ -30,12 +31,14 @@ function createListItem(project, index) {
         linkElement.classList.add("active");
 
         var jsonRequestBody = {};
+        jsonRequestBody[API_KEY_AUTHOR_ID] = getUser().id;
         jsonRequestBody[API_KEY_PROJECT_ID] = listItem.dataset.project_id;
         fetchTasks(jsonRequestBody);
     }
     else if (getSelectedProjectId() == listItem.dataset.project_id) {
         linkElement.classList.add("active");
         var jsonRequestBody = {};
+        jsonRequestBody[API_KEY_AUTHOR_ID] = getUser().id;
         jsonRequestBody[API_KEY_PROJECT_ID] = listItem.dataset.project_id;
         fetchTasks(jsonRequestBody);
     }
@@ -52,6 +55,7 @@ function createListItem(project, index) {
         });
         linkElement.classList.add("active");
         var jsonRequestBody = {};
+        jsonRequestBody[API_KEY_AUTHOR_ID] = getUser().id;
         jsonRequestBody[API_KEY_PROJECT_ID] = listItem.dataset.project_id;
         fetchTasks(jsonRequestBody);
     }
