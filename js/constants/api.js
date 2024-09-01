@@ -25,7 +25,6 @@ export const API_URL_STORE_COMMENT = `${selectedEnv}/api/kite/comments/store`;
 export const API_URL_UPDATE_COMMENT = `${selectedEnv}/api/kite/comments/update`;
 
 
-export const API_KEY_USER_ID = "user_id";
 export const API_KEY_AUTHOR_ID = "author_id";
 export const API_KEY_PROJECT_ID = "project_id";
 export const API_KEY_TASK_ID = "task_id";

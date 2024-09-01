@@ -1,5 +1,5 @@
 import { getUser } from "../constants/my-store.js";
-import { API_KEY_AUTHOR_ID, API_KEY_CONTRIBUTOR_ID, API_KEY_USER_ID } from "../constants/api.js";
+import { API_KEY_AUTHOR_ID, API_KEY_CONTRIBUTOR_ID } from "../constants/api.js";
 import { fetchContributors, fetchContributions, fetchUsersList } from "../fetching/kite-contributors.js";
 
 // Create a new instance of the modal
@@ -23,7 +23,7 @@ function init() {
     fetchContributions(contributor_id);
 
     const user_id = {};
-    user_id[API_KEY_USER_ID] = getUser().id;
+    user_id[API_KEY_AUTHOR_ID] = getUser().id;
     fetchUsersList(user_id);
 
     displayModalContributorWithSelectedProject();
