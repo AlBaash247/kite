@@ -1,5 +1,5 @@
 import { storeUser, getUser } from '../constants/my-store.js';
-import { mainFetch } from '../fetching/main-fetch.js';
+import { mainFetch } from './main-fetch.js';
 
 import { API_URL_LOGIN, API_URL_REGISTER } from '../constants/api.js';
 

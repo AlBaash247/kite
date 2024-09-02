@@ -1,6 +1,6 @@
 import { getSelectedProjectId, getUser } from '../constants/my-store.js';
 import { API_KEY_AUTHOR_ID } from '../constants/api.js';
-import { isAuthOK, signOut } from "../fetching/auth.js";
+import { isAuthOK, signOut } from "../fetchingkite-auth.js";
 import { fetchProjects } from "../fetching/kite-projects.js";
 import { initLoginScript } from './login.js';
 import { initRegisterScript } from './register.js';
