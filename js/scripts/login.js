@@ -1,4 +1,4 @@
-import { isAuthOK, fetchLogin } from "../fetchingkite-auth.js";
+import { isAuthOK, fetchLogin } from "../fetching/kite-auth.js";
 import { API_ERROR_MSG_VALIDATION_FAILED, API_ERROR_MSG_WRONG_CREDENTIALS } from "../constants/api.js";
 import { loginModal, displayLoginModal, displayRegisterModal, toggleActiveContent } from "./index.js";
 
