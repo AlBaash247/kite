@@ -1,4 +1,6 @@
-import { storeSelectedProjectId, getSelectedProjectId } from "../constants/my-store.js";
+import { getUser } from "../constants/my-store.js";
+import { API_KEY_ID, API_KEY_AUTHOR_ID, API_KEY_CONTRIBUTOR_ID, API_KEY_PROJECT_ID } from "../constants/api.js";
+import { fetchRemoveContributor } from "../fetching/kite-contributors.js";
 
 const myContributorsTemplate = document.querySelector('#myContributorsTemplate');
 const myContributorsRowContainer = document.querySelector('#myContributorsRowContainer');
@@ -24,10 +26,30 @@ function createListItem(project, index) {
     myContributorsName.innerText = project.contributor_name;
     myContributionsEmail.innerText = project.contributor_email;
 
-    myContributorsBtnRemoveContributor.onclick = function () {
-        alert(project.project_id);
-    }
+    myContributorsBtnRemoveContributor.onclick = function () { removeContributor(project); }
 
     myContributorsRowContainer.appendChild(clone);
 
+}
+
+async function removeContributor(project) {
+    const jsonRequestBody = {};
+    jsonRequestBody[API_KEY_ID] = project.id;
+    jsonRequestBody[API_KEY_AUTHOR_ID] = getUser().id;
+    jsonRequestBody[API_KEY_CONTRIBUTOR_ID] = project.contributor_id;
+    jsonRequestBody[API_KEY_PROJECT_ID] = project.project_id;
+
+    var result = await fetchRemoveContributor(jsonRequestBody);
+    validateResult(result);
+}
+
+function validateResult(result) {
+
+    if (result.is_ok == false) {
+        alert(result.message);
+    }
+    else {
+        console.log(result.message);
+        location.href = "../../pages/profile.html";
+    }
 }

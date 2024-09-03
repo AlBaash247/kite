@@ -23,7 +23,7 @@ function createListItem(project, index) {
     myContributionsProjectName.innerText = project.project_name;
 
     myContributionsProjectBtnExitProject.onclick = function () {
-        alert(project.project_id)
+        console.log(project.project_id)
     }
 
     myContributionsRowContainer.appendChild(clone);
