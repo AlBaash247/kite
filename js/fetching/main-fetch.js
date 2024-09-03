@@ -1,8 +1,11 @@
-import { HTTP_METHOD_POST_NO_CACHE } from "../constants/api.js";
+import { HTTP_METHOD_POST_NO_CACHE, API_RESULT_IS_OK, API_RESULT_MESSAGE } from "../constants/api.js";
 
 let loadingIndicator = document.getElementById('loading-indicator');
 
 export async function mainFetch(API_URL, jsonRequestBody) {
+    console.log(API_URL);
+    console.log(jsonRequestBody);
+
     appendLoadingIndicator();
 
     let result = {};
@@ -15,8 +18,8 @@ export async function mainFetch(API_URL, jsonRequestBody) {
                 result = responseObject;
             }
             else {
-                result.is_ok = false;
-                result.message = `HTTP error! status: ${response.status}`;
+                result[API_RESULT_IS_OK] = false;
+                result[API_RESULT_MESSAGE] = `HTTP error! status: ${response.status}`;
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             hideLoadingIndicator();
@@ -27,8 +30,8 @@ export async function mainFetch(API_URL, jsonRequestBody) {
         return responseObject;
 
     } catch (error) {
-        result.is_ok = false;
-        result.message = 'Error fetching data: ' + error;
+        result[API_RESULT_IS_OK] = false;
+        result[API_RESULT_MESSAGE] = 'Error fetching data: ' + error;
         hideLoadingIndicator();
         return result;
     }

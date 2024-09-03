@@ -1,5 +1,5 @@
 import { getUser } from "../constants/my-store.js";
-import { API_KEY_AUTHOR_ID, API_KEY_PROJECT_ID, API_KEY_CONTRIBUTORS } from "../constants/api.js";
+import { API_KEY_AUTHOR_ID, API_KEY_PROJECT_ID, API_KEY_CONTRIBUTORS, API_KEY_ID, API_KEY_EMAIL, API_KEY_NAME } from "../constants/api.js";
 import { fetchProjects, fetchStoreContributors } from "../fetching/kite-contributors.js";
 const modalContributorSelectContributorListItemTemplate = document.querySelector('#modalContributorSelectContributorListItemTemplate');
 const modalContributorSelectContributorContainer = document.querySelector('#modalContributorSelectContributorContainer');
@@ -36,8 +36,8 @@ function createListItem(user, index) {
     const clone = modalContributorSelectContributorListItemTemplate.content.cloneNode(true);
 
     const contributorItemLink = clone.querySelector('#contributorItemLink');
-    contributorItemLink.dataset.id = user.id;
-    contributorItemLink.innerText = user.name + " | " + user.email;
+    contributorItemLink.dataset.id = user[API_KEY_ID];
+    contributorItemLink.innerText = user[API_KEY_NAME] + " | " + user[API_KEY_EMAIL];
 
     contributorItemLink.onclick = function () {
         removeEmptyRow();
@@ -70,9 +70,9 @@ function selectItem(element, user) {
     const modalContributorEmail = clone.getElementById('modalContributorEmail');
     const modalContributorRemoveContributor = clone.getElementById('modalContributorRemoveContributor');
 
-    modalContributorRow.dataset.id = user.id;
-    modalContributorName.innerText = user.name;
-    modalContributorEmail.innerText = user.email;
+    modalContributorRow.dataset.id = user[API_KEY_ID];
+    modalContributorName.innerText = user[API_KEY_NAME];
+    modalContributorEmail.innerText = user[API_KEY_EMAIL];
 
     modalContributorRemoveContributor.onclick = function () {
         //remove element from modalContributorSelectedItemsContainer

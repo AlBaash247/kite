@@ -1,5 +1,5 @@
 import { getUser } from "../constants/my-store.js";
-import { API_KEY_ID, API_KEY_AUTHOR_ID, API_KEY_CONTRIBUTOR_ID, API_KEY_PROJECT_ID } from "../constants/api.js";
+import { API_KEY_ID, API_KEY_AUTHOR_ID, API_KEY_CONTRIBUTOR_ID, API_KEY_PROJECT_ID, } from "../constants/api.js";
 import { fetchExitProject } from "../fetching/kite-contributors.js";
 
 const myContributionsTemplate = document.querySelector('#myContributionsTemplate');
@@ -32,10 +32,10 @@ function createListItem(project, index) {
 
 async function exitProject(project) {
     const jsonRequestBody = {};
-    jsonRequestBody[API_KEY_ID] = project.id;
-    jsonRequestBody[API_KEY_AUTHOR_ID] = project.author_id;
-    jsonRequestBody[API_KEY_CONTRIBUTOR_ID] = project.contributor_id;
-    jsonRequestBody[API_KEY_PROJECT_ID] = project.project_id;
+    jsonRequestBody[API_KEY_ID] = project[API_KEY_ID];
+    jsonRequestBody[API_KEY_AUTHOR_ID] = project[API_KEY_AUTHOR_ID];
+    jsonRequestBody[API_KEY_CONTRIBUTOR_ID] = project[API_KEY_CONTRIBUTOR_ID];
+    jsonRequestBody[API_KEY_PROJECT_ID] = project[API_KEY_PROJECT_ID];
 
     var result = await fetchExitProject(jsonRequestBody);
     console.log(result);

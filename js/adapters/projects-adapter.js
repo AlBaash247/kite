@@ -1,6 +1,6 @@
 
 import { getUser } from "../constants/my-store.js";
-import { API_KEY_AUTHOR_ID, API_KEY_PROJECT_ID } from "../constants/api.js";
+import { API_KEY_ID, API_KEY_AUTHOR_ID, API_KEY_PROJECT_ID, API_KEY_PROJECT_NAME } from "../constants/api.js";
 import { fetchTasks } from '../fetching/kite-tasks.js';
 import { storeSelectedProjectId, getSelectedProjectId } from "../constants/my-store.js";
 
@@ -23,8 +23,8 @@ function createListItem(project, index) {
     const linkElement = clone.querySelector('#linkElement');
     const projectTitle = clone.querySelector('#projectTitle');
 
-    listItem.dataset.project_id = project.id;
-    projectTitle.innerText = project.project_name;
+    listItem.dataset.project_id = project[API_KEY_ID];
+    projectTitle.innerText = project[API_KEY_PROJECT_NAME];
 
     if (index == 0 && getSelectedProjectId() == null) {
         storeSelectedProjectId(listItem.dataset.project_id);

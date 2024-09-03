@@ -26,7 +26,10 @@ export const API_URL_UPDATE_COMMENT = `${selectedEnv}/api/kite/comments/update`;
 
 
 export const API_KEY_ID = "id";
+export const API_KEY_NAME = "name";
+export const API_KEY_EMAIL = "email";
 export const API_KEY_AUTHOR_ID = "author_id";
+export const API_KEY_AUTHOR_NAME = "author_name";
 export const API_KEY_PROJECT_ID = "project_id";
 export const API_KEY_TASK_ID = "task_id";
 
@@ -49,7 +52,12 @@ export const API_KEY_COMMENT = "comment";
 
 export const API_KEY_PROJECT_NAME = "project_name";
 export const API_KEY_CONTRIBUTOR_ID = "contributor_id";
+export const API_KEY_CONTRIBUTOR_NAME = "contributor_name";
+export const API_KEY_CONTRIBUTOR_EMAIL = "contributor_email";
 export const API_KEY_CONTRIBUTORS = "contributors";
+
+export const API_RESULT_IS_OK = "is_ok";
+export const API_RESULT_MESSAGE = "message";
 
 export const API_ERROR_MSG_VALIDATION_FAILED = "Validation failed";
 export const API_ERROR_MSG_WRONG_CREDENTIALS = "wrong credentials";

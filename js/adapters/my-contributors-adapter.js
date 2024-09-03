@@ -1,4 +1,7 @@
-import { API_KEY_ID, API_KEY_AUTHOR_ID, API_KEY_CONTRIBUTOR_ID, API_KEY_PROJECT_ID } from "../constants/api.js";
+import {
+    API_KEY_ID, API_KEY_AUTHOR_ID, API_KEY_CONTRIBUTOR_ID, API_KEY_PROJECT_ID,
+    API_KEY_PROJECT_NAME, API_KEY_CONTRIBUTOR_NAME, API_KEY_CONTRIBUTOR_EMAIL
+} from "../constants/api.js";
 import { fetchRemoveContributor } from "../fetching/kite-contributors.js";
 
 const myContributorsTemplate = document.querySelector('#myContributorsTemplate');
@@ -21,9 +24,9 @@ function createListItem(project, index) {
     const myContributorsBtnRemoveContributor = clone.querySelector('#myContributorsBtnRemoveContributor');
 
     myContributorsIndex.innerText = (index + 1);
-    myContributorsProjectName.innerText = project.project_name;
-    myContributorsName.innerText = project.contributor_name;
-    myContributionsEmail.innerText = project.contributor_email;
+    myContributorsProjectName.innerText = project[API_KEY_PROJECT_NAME];
+    myContributorsName.innerText = project[API_KEY_CONTRIBUTOR_NAME];
+    myContributionsEmail.innerText = project[API_KEY_CONTRIBUTOR_EMAIL];
 
     myContributorsBtnRemoveContributor.onclick = function () { removeContributor(project); }
 
@@ -33,10 +36,10 @@ function createListItem(project, index) {
 
 async function removeContributor(project) {
     const jsonRequestBody = {};
-    jsonRequestBody[API_KEY_ID] = project.id;
-    jsonRequestBody[API_KEY_AUTHOR_ID] = project.author_id;
-    jsonRequestBody[API_KEY_CONTRIBUTOR_ID] = project.contributor_id;
-    jsonRequestBody[API_KEY_PROJECT_ID] = project.project_id;
+    jsonRequestBody[API_KEY_ID] = project[API_KEY_ID];
+    jsonRequestBody[API_KEY_AUTHOR_ID] = project[API_KEY_AUTHOR_ID];
+    jsonRequestBody[API_KEY_CONTRIBUTOR_ID] = project[API_KEY_CONTRIBUTOR_ID];
+    jsonRequestBody[API_KEY_PROJECT_ID] = project[API_KEY_PROJECT_ID];
 
     var result = await fetchRemoveContributor(jsonRequestBody);
     validateResult(result);

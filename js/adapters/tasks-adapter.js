@@ -1,7 +1,9 @@
 import { storeSelectedTask } from '../constants/my-store.js';
 import {
     API_KEY_STATUS_TODO, API_KEY_STATUS_IN_PROGRESS, API_KEY_STATUS_DONE,
-    API_KEY_IMPORTANCE_IMPORTANT, API_KEY_IMPORTANCE_LOW_PRIORITY, API_KEY_IMPORTANCE_NORMAL, API_KEY_IMPORTANCE_URGENT
+    API_KEY_IMPORTANCE_IMPORTANT, API_KEY_IMPORTANCE_LOW_PRIORITY, API_KEY_IMPORTANCE_NORMAL,
+    API_KEY_IMPORTANCE_URGENT, API_KEY_TITLE, API_KEY_AUTHOR_NAME, API_KEY_STATUS, API_KEY_IMPORTANCE,
+    API_KEY_DUE_DATE, API_KEY_ID
 } from "../constants/api.js";
 
 const taskRowTemplate = document.querySelector('#taskRowTemplate');
@@ -39,21 +41,21 @@ function createRow(task) {
     const btnEditTask = clone.querySelector('#btnEditTask');
     // const taskContent = clone.querySelector('#taskContent');
 
-    taskId.innerText = task.id;
-    taskTitle.innerText = task.title;
-    taskAuthorName.innerText = task.author_name;
-    taskStatus.innerText = task.status;
-    taskImportance.innerText = task.importance;
-    taskDueDate.innerText = task.due_date;
+    taskId.innerText = task[API_KEY_ID];
+    taskTitle.innerText = task[API_KEY_TITLE];
+    taskAuthorName.innerText = task[API_KEY_AUTHOR_NAME];
+    taskStatus.innerText = task[API_KEY_STATUS];
+    taskImportance.innerText = task[API_KEY_IMPORTANCE];
+    taskDueDate.innerText = task[API_KEY_DUE_DATE];
     // taskContent.innerText = task.content;
 
-    switch (task.status) {
+    switch (task[API_KEY_STATUS]) {
         case API_KEY_STATUS_TODO: taskStatus.classList.add("text-bg-secondary"); break;
         case API_KEY_STATUS_IN_PROGRESS: taskStatus.classList.add("text-bg-warning"); break;
         case API_KEY_STATUS_DONE: taskStatus.classList.add("text-bg-success"); break;
     }
 
-    switch (task.importance) {
+    switch (task[API_KEY_IMPORTANCE]) {
         case API_KEY_IMPORTANCE_IMPORTANT: taskImportance.classList.add("text-bg-primary"); break;
         case API_KEY_IMPORTANCE_LOW_PRIORITY: taskImportance.classList.add("text-bg-light"); break;
         case API_KEY_IMPORTANCE_NORMAL: taskImportance.classList.add("text-bg-info"); break;
