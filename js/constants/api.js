@@ -2,7 +2,7 @@
 const localEnv = "http://127.0.0.1:8000";
 const serverEnv = "https://albaash247.com";
 
-const selectedEnv = localEnv;
+const selectedEnv = serverEnv;
 
 export const API_URL_LOGIN = `${selectedEnv}/api/kite/login`;
 export const API_URL_REGISTER = `${selectedEnv}/api/kite/register`;
