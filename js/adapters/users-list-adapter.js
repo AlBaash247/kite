@@ -108,7 +108,7 @@ function removeEmptyRow() {
     }
 }
 
-function addContributors() {
+async function addContributors() {
     const emptyRow = document.getElementById('emptyRow');
     if (emptyRow) {
         alert('Please select a contributor');
@@ -120,7 +120,8 @@ function addContributors() {
         jsonRequestBody[API_KEY_PROJECT_ID] = modalContributorInputProjectName.value;
         jsonRequestBody[API_KEY_CONTRIBUTORS] = selectedContributorsIds;
 
-        fetchStoreContributors(jsonRequestBody);
+        var result = await fetchStoreContributors(jsonRequestBody);
+        validateResult(result)
     }
 }
 
@@ -147,5 +148,16 @@ function getSelectedProjectId() {
         return urlParams.get('project_id');
     } else {
         return 0;
+    }
+}
+
+function validateResult(result) {
+
+    if (result.is_ok == false) {
+        alert(result.message);
+    }
+    else {
+        console.log(result.message);
+        location.href = "../../pages/profile.html";
     }
 }
