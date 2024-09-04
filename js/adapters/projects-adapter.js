@@ -60,6 +60,16 @@ function createListItem(project, index) {
         fetchTasks(jsonRequestBody);
     }
 
-    projectsContainer.appendChild(clone);
+    if (project[API_KEY_AUTHOR_ID] != getUser().id && !projectsContainer.classList.contains('divider-added')) {
+        createSideMenuDivider();
+    }
 
+    projectsContainer.appendChild(clone);
+}
+
+function createSideMenuDivider() {
+    const div = document.createElement('div');
+    div.classList.add("py-3", "bg-gray");
+    projectsContainer.appendChild(div);
+    projectsContainer.classList.add('divider-added');
 }
