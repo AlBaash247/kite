@@ -1,9 +1,9 @@
-import { storeSelectedTask } from '../constants/my-store.js';
+import { getUser, storeSelectedTask } from '../constants/my-store.js';
 import {
     API_KEY_STATUS_TODO, API_KEY_STATUS_IN_PROGRESS, API_KEY_STATUS_DONE,
     API_KEY_IMPORTANCE_IMPORTANT, API_KEY_IMPORTANCE_LOW_PRIORITY, API_KEY_IMPORTANCE_NORMAL,
     API_KEY_IMPORTANCE_URGENT, API_KEY_TITLE, API_KEY_AUTHOR_NAME, API_KEY_STATUS, API_KEY_IMPORTANCE,
-    API_KEY_DUE_DATE, API_KEY_ID
+    API_KEY_DUE_DATE, API_KEY_ID, API_KEY_AUTHOR_ID
 } from "../constants/api.js";
 
 const taskRowTemplate = document.querySelector('#taskRowTemplate');
@@ -31,6 +31,7 @@ function createRow(task) {
 
     const clone = taskRowTemplate.content.cloneNode(true);
 
+    const taskRow = clone.querySelector('#taskRow');
     const taskId = clone.querySelector('#taskId');
     const taskTitle = clone.querySelector('#taskTitle');
     const taskAuthorName = clone.querySelector('#taskAuthorName');
@@ -62,6 +63,9 @@ function createRow(task) {
         case API_KEY_IMPORTANCE_URGENT: taskImportance.classList.add("text-bg-danger"); break;
     }
 
+    if (task[API_KEY_AUTHOR_ID] != getUser().id) {
+        taskRow.classList.add('table-warning');
+    }
 
     btnViewTask.onclick = function () {
         storeSelectedTask(task);
