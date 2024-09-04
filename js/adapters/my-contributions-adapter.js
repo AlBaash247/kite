@@ -38,8 +38,6 @@ async function exitProject(project) {
     jsonRequestBody[API_KEY_PROJECT_ID] = project[API_KEY_PROJECT_ID];
 
     var result = await fetchExitProject(jsonRequestBody);
-    console.log(result);
-
     validateResult(result);
 }
 
