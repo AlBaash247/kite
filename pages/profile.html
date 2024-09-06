@@ -30,6 +30,61 @@
         </div>
     </div>
 
+
+    <!-- My projects -->
+    <div class="container-fluid p-0 my-3">
+
+        <div class="d-flex justify-content-center mt-5">
+            <div class="container card shadow p-4">
+
+                <div class="container card shadow my-3 p-4">
+
+                    <div class="accordion accordion-flush">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button id="myProjectsAccordionBtnProjects"
+                                    class="accordion-button display-6 fs-5 collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#myProjectsCollapsePanel"
+                                    aria-expanded="false" aria-controls="myProjectsCollapsePanel">
+                                    <i class="bi bi-file-ruled-fill me-1"></i> My Projects
+                                </button>
+                            </h2>
+                            <div id="myProjectsCollapsePanel" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+
+                                    <div class="d-flex justify-content-around flex-wrap">
+
+                                    </div>
+
+                                    <table class="table table-lg table-hover shadow">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Project Name</th>
+                                                <th>Operations</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="myProjectsRowContainer" class="table-group-divider">
+                                            <!-- myProjects Template lives here  -->
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
     <!-- My Contributions -->
     <div class="container-fluid p-0 my-3">
 
@@ -76,7 +131,7 @@
                                             </tr>
                                         </thead>
                                         <tbody id="myContributionsRowContainer" class="table-group-divider">
-                                            <!-- myContributortions Template  -->
+                                            <!-- myContributions Template lives here  -->
                                         </tbody>
                                     </table>
 
@@ -225,6 +280,19 @@
         </div>
     </div>
 
+    <!-- myProjects Template -->
+    <template id="myProjectRowTemplate">
+        <tr>
+            <td id="myProjectIndex">1</td>
+            <td id="myProjectName">project Name</td>
+            <td>
+                <button id="myProjectBtnDeleteProject" title="delete project" class="btn btn-outline-danger">
+                    <i class="bi bi-trash3-fill"></i>
+                </button>
+            </td>
+        </tr>
+    </template>
+
 
     <!-- myContributions Template  -->
     <template id="myContributionsTemplate">
@@ -262,7 +330,7 @@
     </template>
 
 
-    <!-- modalContributor rows template lives here  -->
+    <!-- modalContributor rows template -->
     <template id="modalContributorRowTemplate">
         <tr id="modalContributorRow" name="modalContributorRow">
             <td id="modalContributorName">John Doe </td>
@@ -275,6 +343,8 @@
             </td>
         </tr>
     </template>
+
+
 
     <script type="module" src="../js/scripts/profile.js"></script>
 

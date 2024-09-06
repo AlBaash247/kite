@@ -9,12 +9,15 @@ export const API_URL_REGISTER = `${selectedEnv}/api/kite/register`;
 
 export const API_URL_STORE_PROJECT = `${selectedEnv}/api/kite/projects/store`;
 export const API_URL_GET_PROJECTS = `${selectedEnv}/api/kite/projects`;
+export const API_URL_UPDATE_PROJECT = `${selectedEnv}/api/kite/projects/update`;
+export const API_URL_DELETE_PROJECT = `${selectedEnv}/api/kite/projects/delete`;
 export const API_URL_GET_CONTRIBUTORS = `${selectedEnv}/api/kite/projects/contributors`;
 export const API_URL_GET_CONTRIBUTIONS = `${selectedEnv}/api/kite/projects/contribution`;
 export const API_URL_STORE_CONTRIBUTOR = `${selectedEnv}/api/kite/projects/store_contributor`;
 export const API_URL_REMOVE_CONTRIBUTOR = `${selectedEnv}/api/kite/projects/remove_contributor`;
 export const API_URL_EXIT_PROJECT = `${selectedEnv}/api/kite/projects/exit_project`;
 export const API_URL_USERS_LIST = `${selectedEnv}/api/kite/projects/users_list`;
+export const API_URL_GET_MY_PROJECTS = `${selectedEnv}/api/kite/projects/my_projects`;
 
 export const API_URL_GET_TASKS = `${selectedEnv}/api/kite/tasks`;
 export const API_URL_STORE_TASK = `${selectedEnv}/api/kite/tasks/store`;

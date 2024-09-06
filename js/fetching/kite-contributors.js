@@ -1,10 +1,11 @@
 import { mainFetch } from '../fetching/main-fetch.js';
 import { adapterContributors } from "../adapters/my-contributors-adapter.js";
 import { adapterContribution } from "../adapters/my-contributions-adapter.js";
+import { adapterMyProjects } from "../adapters/my-projects-adapter.js";
 import { adapterUsersList, adapterProjectsList } from "../adapters/users-list-adapter.js";
 import {
     API_URL_GET_CONTRIBUTORS, API_URL_GET_CONTRIBUTIONS, API_URL_STORE_CONTRIBUTOR,
-    API_URL_REMOVE_CONTRIBUTOR, API_URL_USERS_LIST, API_URL_GET_PROJECTS, API_URL_EXIT_PROJECT
+    API_URL_REMOVE_CONTRIBUTOR, API_URL_USERS_LIST, API_URL_GET_PROJECTS, API_URL_EXIT_PROJECT, API_URL_GET_MY_PROJECTS
 } from "../constants/api.js";
 
 
@@ -43,5 +44,12 @@ export async function fetchUsersList(jsonRequestBody) {
 export async function fetchProjects(jsonRequestBody) {
     const responseObject = await mainFetch(API_URL_GET_PROJECTS, jsonRequestBody);
     adapterProjectsList(responseObject.data.projects);
+}
+
+
+export async function fetchMyProjects(jsonRequestBody) {
+    const responseObject = await mainFetch(API_URL_GET_MY_PROJECTS, jsonRequestBody);
+    console.log(responseObject);
+    adapterMyProjects(responseObject.data.projects);
 }
 

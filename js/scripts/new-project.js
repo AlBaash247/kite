@@ -5,8 +5,12 @@ import {
 } from "../constants/api.js";
 import { fetchStoreProject } from "../fetching/kite-projects.js";
 
+let projectModal;
+if (document.getElementById('projectModal') != null) {
+    projectModal = new bootstrap.Modal(document.getElementById('projectModal'));
+}
 
-const projectModal = new bootstrap.Modal(document.getElementById('projectModal'));
+
 const modalProjectBtnCreate = document.querySelector('#modalProjectBtnCreate');
 
 const modalProjectInputProjectName = document.querySelector('#modalProjectInputProjectName');
@@ -26,7 +30,6 @@ async function projectScript() {
     const project = {};
     project[API_KEY_AUTHOR_ID] = getUser().id;
     project[API_KEY_PROJECT_NAME] = modalProjectInputProjectName.value;
-    console.log(project);
 
     var result = await fetchStoreProject(project);
     validateResult(result);
