@@ -1,4 +1,3 @@
-import { getUser } from "../constants/my-store.js";
 import { API_KEY_ID, API_KEY_AUTHOR_ID, API_KEY_CONTRIBUTOR_ID, API_KEY_PROJECT_ID, } from "../constants/api.js";
 import { fetchExitProject } from "../fetching/kite-contributors.js";
 
