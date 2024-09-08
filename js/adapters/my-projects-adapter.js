@@ -1,5 +1,7 @@
 import { API_KEY_AUTHOR_ID, API_KEY_ID, API_KEY_PROJECT_NAME, } from "../constants/api.js";
+import { storeSelectedProject } from "../constants/my-store.js";
 import { fetchDeleteProject } from "../fetching/kite-projects.js";
+import { displayProjectModal } from "../scripts/profile.js";
 const myProjectRowTemplate = document.querySelector('#myProjectRowTemplate');
 const myProjectsRowContainer = document.querySelector('#myProjectsRowContainer');
 
@@ -15,15 +17,18 @@ function createListItem(project, index) {
 
     const myProjectIndex = clone.querySelector('#myProjectIndex');
     const myProjectName = clone.querySelector('#myProjectName');
+    const myProjectBtnEditProject = clone.querySelector('#myProjectBtnEditProject');
     const myProjectBtnDeleteProject = clone.querySelector('#myProjectBtnDeleteProject');
 
     myProjectIndex.innerText = (index + 1);
     myProjectName.innerText = project[API_KEY_PROJECT_NAME];
 
+    myProjectBtnEditProject.onclick = function () { storeSelectedProject(project); displayProjectModal(); }
     myProjectBtnDeleteProject.onclick = function () { deleteProject(project) }
 
     myProjectsRowContainer.appendChild(clone);
 }
+
 
 
 async function deleteProject(project) {

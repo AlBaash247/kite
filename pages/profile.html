@@ -217,6 +217,39 @@
 
     </div>
 
+    <!-- project Modal -->
+    <div class="modal fade" id="projectModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Your Project :V</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-floating mb-3">
+                        <input id="modalProjectInputProjectName" type="text" class="form-control"
+                            placeholder="project name" value="">
+                        <label for="modalLoginInputEmail">Project Name</label>
+                        <p id="modalProjectInputError_project_name" class="text-danger"></p>
+                    </div>
+
+                    <p id="modalProjectFormError" class="text-danger fs-5"></p>
+                </div>
+
+                <div class="container modal-footer">
+                    <div class="d-flex w-100">
+                        <button type="button" class="btn btn-secondary mx-1" data-bs-dismiss="modal">Close</button>
+                        <button id="modalProjectBtnCreate" type="button" class="btn btn-primary mx-1">Update</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Contributor Modal -->
     <div class="modal fade" id="modalContributor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -286,6 +319,9 @@
             <td id="myProjectIndex">1</td>
             <td id="myProjectName">project Name</td>
             <td>
+                <button id="myProjectBtnEditProject" title="edit project" class="btn btn-outline-success">
+                    <i class="bi bi-pencil-square"></i>
+                </button>
                 <button id="myProjectBtnDeleteProject" title="delete project" class="btn btn-outline-danger">
                     <i class="bi bi-trash3-fill"></i>
                 </button>

@@ -4,6 +4,7 @@ export const STORE_USER = 'user';
 export const STORE_SELECTED_PROJECT_ID = 'selected_project_id';
 export const STORE_SELECTED_TASK = 'selected_task';
 export const STORE_SELECTED_COMMENT = 'selected_comment';
+export const STORE_SELECTED_PROJECT = 'selected_project';
 
 
 export function storeUser(user) {
@@ -36,4 +37,12 @@ export function storeSelectedComment(comment) {
 
 export function getSelectedComment() {
     return store.get(STORE_SELECTED_COMMENT);
+}
+
+export function storeSelectedProject(project) {
+    store.set(STORE_SELECTED_PROJECT, project);
+}
+
+export function getSelectedProject() {
+    return store.get(STORE_SELECTED_PROJECT);
 }
